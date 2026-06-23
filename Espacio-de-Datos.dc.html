@@ -42,6 +42,8 @@
     @keyframes flCard2 { 0%,25%{border-color:var(--border-subtle);background:#fff} 27%,48%{border-color:var(--indigo-500);background:var(--indigo-50)} 50%,100%{border-color:var(--border-subtle);background:#fff} }
     @keyframes flCard3 { 0%,50%{border-color:var(--border-subtle);background:#fff} 52%,73%{border-color:var(--red-600);background:var(--red-50)} 75%,100%{border-color:var(--border-subtle);background:#fff} }
     @keyframes flCard4 { 0%,75%{border-color:var(--border-subtle);background:#fff} 77%,98%{border-color:var(--indigo-500);background:var(--indigo-50)} 100%{border-color:var(--border-subtle);background:#fff} }
+    /* ---- Mapa territorial: pulsos de nodos activos ---- */
+    @keyframes phmtMapPulse { 0%{transform:scale(0.45);opacity:0.85} 70%{opacity:0.12} 100%{transform:scale(2.8);opacity:0} }
     @media (prefers-reduced-motion: reduce) { [style*="animation"] { animation: none !important; } }
     @media (prefers-reduced-motion: no-preference){
       .phmt-js section{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.22,.61,.36,1),transform .7s cubic-bezier(.22,.61,.36,1);}
@@ -98,30 +100,108 @@
     </div>
   </section>
 
-  <!-- ARQUITECTURA 3 CAPAS -->
+  <!-- UTILE · GMV -->
   <section style="background:#fff;border-top:1px solid var(--border-subtle);border-bottom:1px solid var(--border-subtle);">
     <div style="max-width:1120px;margin:0 auto;padding:72px 32px;">
-      <div style="max-width:680px;margin-bottom:44px;">
-        <span style="display:block;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--red-600);margin-bottom:12px;">{{ arch_tag }}</span>
-        <h2 style="margin:0;font-family:var(--font-display);font-weight:800;font-size:34px;line-height:1.15;letter-spacing:-0.02em;color:var(--indigo-700);">{{ arch_title }}</h2>
+      <!-- Cabecera -->
+      <div style="max-width:780px;margin-bottom:18px;">
+        <span style="display:block;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--red-600);margin-bottom:12px;">{{ utile_tag }}</span>
+        <h2 style="margin:0 0 16px;font-family:var(--font-display);font-weight:800;font-size:34px;line-height:1.15;letter-spacing:-0.02em;color:var(--indigo-700);">{{ utile_title }}</h2>
+        <p style="margin:0;font-size:16px;line-height:1.65;color:var(--grey-600);">{{ utile_intro }}</p>
       </div>
-      <div style="display:flex;flex-direction:column;gap:16px;">
-        <div style="display:grid;grid-template-columns:64px 1fr 1.3fr;gap:28px;align-items:center;background:var(--grey-50);border:1px solid var(--border-subtle);border-left:4px solid var(--indigo-700);border-radius:14px;padding:28px 32px;">
-          <span style="font-family:var(--font-display);font-weight:800;font-size:40px;color:var(--indigo-200);line-height:1;">1</span>
-          <div><h3 style="margin:0 0 6px;font-family:var(--font-display);font-weight:700;font-size:21px;color:var(--indigo-700);">{{ layer1_title }}</h3><p style="margin:0;font-size:14.5px;line-height:1.55;color:var(--grey-600);">{{ layer1_sub }}</p></div>
-          <div style="display:flex;flex-wrap:wrap;gap:8px;"><span style="background:#fff;border:1px solid var(--border-subtle);border-radius:999px;padding:7px 14px;font-size:13px;font-weight:600;color:var(--grey-700);">{{ layer1_tag1 }}</span><span style="background:#fff;border:1px solid var(--border-subtle);border-radius:999px;padding:7px 14px;font-size:13px;font-weight:600;color:var(--grey-700);">{{ layer1_tag2 }}</span><span style="background:#fff;border:1px solid var(--border-subtle);border-radius:999px;padding:7px 14px;font-size:13px;font-weight:600;color:var(--grey-700);">{{ layer1_tag3 }}</span></div>
-        </div>
-        <div style="display:grid;grid-template-columns:64px 1fr 1.3fr;gap:28px;align-items:center;background:var(--grey-50);border:1px solid var(--border-subtle);border-left:4px solid var(--red-600);border-radius:14px;padding:28px 32px;">
-          <span style="font-family:var(--font-display);font-weight:800;font-size:40px;color:var(--red-300);line-height:1;">2</span>
-          <div><h3 style="margin:0 0 6px;font-family:var(--font-display);font-weight:700;font-size:21px;color:var(--indigo-700);">{{ layer2_title }}</h3><p style="margin:0;font-size:14.5px;line-height:1.55;color:var(--grey-600);">{{ layer2_sub }}</p></div>
-          <div style="display:flex;flex-wrap:wrap;gap:8px;"><span style="background:#fff;border:1px solid var(--border-subtle);border-radius:999px;padding:7px 14px;font-size:13px;font-weight:600;color:var(--grey-700);">{{ layer2_tag1 }}</span><span style="background:#fff;border:1px solid var(--border-subtle);border-radius:999px;padding:7px 14px;font-size:13px;font-weight:600;color:var(--grey-700);">{{ layer2_tag2 }}</span><span style="background:#fff;border:1px solid var(--border-subtle);border-radius:999px;padding:7px 14px;font-size:13px;font-weight:600;color:var(--grey-700);">{{ layer2_tag3 }}</span></div>
-        </div>
-        <div style="display:grid;grid-template-columns:64px 1fr 1.3fr;gap:28px;align-items:center;background:var(--grey-50);border:1px solid var(--border-subtle);border-left:4px solid var(--indigo-400);border-radius:14px;padding:28px 32px;">
-          <span style="font-family:var(--font-display);font-weight:800;font-size:40px;color:var(--indigo-200);line-height:1;">3</span>
-          <div><h3 style="margin:0 0 6px;font-family:var(--font-display);font-weight:700;font-size:21px;color:var(--indigo-700);">{{ layer3_title }}</h3><p style="margin:0;font-size:14.5px;line-height:1.55;color:var(--grey-600);">{{ layer3_sub }}</p></div>
-          <div style="display:flex;flex-wrap:wrap;gap:8px;"><span style="background:#fff;border:1px solid var(--border-subtle);border-radius:999px;padding:7px 14px;font-size:13px;font-weight:600;color:var(--grey-700);">{{ layer3_tag1 }}</span><span style="background:#fff;border:1px solid var(--border-subtle);border-radius:999px;padding:7px 14px;font-size:13px;font-weight:600;color:var(--grey-700);">{{ layer3_tag2 }}</span><span style="background:#fff;border:1px solid var(--border-subtle);border-radius:999px;padding:7px 14px;font-size:13px;font-weight:600;color:var(--grey-700);">{{ layer3_tag3 }}</span></div>
+      <div style="display:inline-flex;align-items:center;gap:18px;background:var(--grey-50);border:1px solid var(--border-subtle);border-radius:16px;padding:14px 26px;margin-bottom:46px;">
+        <span style="font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--grey-500);">{{ utile_by }}</span>
+        <img src="assets/logos/gmvpng.png" alt="GMV — Innovating Solutions" style="height:48px;width:auto;object-fit:contain;">
+      </div>
+
+      <!-- Diagrama UTile (fiel al esquema original de GMV) -->
+      <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:8px;">
+        <div style="min-width:940px;">
+
+          <!-- ACTORES -->
+          <div style="display:grid;grid-template-columns:34px 1fr 1fr 1fr 1fr;gap:18px;align-items:end;margin-bottom:8px;">
+            <div style="display:flex;align-items:center;justify-content:center;"><span style="writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--font-display);font-weight:800;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--grey-400);">{{ lbl_actores }}</span></div>
+            <div style="grid-column:span 2;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;">
+              <div style="width:64px;height:64px;border-radius:50%;background:var(--red-50);display:flex;align-items:center;justify-content:center;color:var(--red-600);"><svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0"/><circle cx="17.5" cy="9" r="2.5"/><path d="M16.5 13.6A4.6 4.6 0 0 1 21 18"/></svg></div>
+              <span style="font-family:var(--font-display);font-weight:800;font-size:14px;color:var(--red-600);line-height:1.25;">{{ act_provider }}</span>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;">
+              <div style="width:64px;height:64px;border-radius:50%;background:var(--red-50);display:flex;align-items:center;justify-content:center;color:var(--red-600);"><svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="8" r="3.3"/><path d="M4 19a6 6 0 0 1 11.2-3"/><circle cx="18.3" cy="6.7" r="2.6"/><path d="M18.3 3.6v1M18.3 8.8v1M21 5.2l-.9.5M16.5 8l-.9.5M21 8l-.9-.5M16.5 5.2l-.9-.5"/></svg></div>
+              <span style="font-family:var(--font-display);font-weight:800;font-size:14px;color:var(--red-600);line-height:1.25;">{{ act_coord }}</span>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;">
+              <div style="width:64px;height:64px;border-radius:50%;background:var(--red-50);display:flex;align-items:center;justify-content:center;color:var(--red-600);"><svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3"/><path d="M6.5 19a5.5 5.5 0 0 1 11 0"/><circle cx="4.6" cy="9.6" r="2.1"/><circle cx="19.4" cy="9.6" r="2.1"/><path d="M1.6 18a4 4 0 0 1 5-3.5M22.4 18a4 4 0 0 0-5-3.5"/></svg></div>
+              <span style="font-family:var(--font-display);font-weight:800;font-size:14px;color:var(--red-600);line-height:1.25;">{{ act_dev }}</span>
+            </div>
+          </div>
+
+          <!-- ENTIDADES -->
+          <div style="display:grid;grid-template-columns:34px 1fr 1fr 1fr 1fr;gap:18px;align-items:stretch;margin:18px 0;">
+            <div style="display:flex;align-items:center;justify-content:center;"><span style="writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--font-display);font-weight:800;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--grey-400);">{{ lbl_entidades }}</span></div>
+            <div style="background:#7f8690;border-radius:12px;padding:16px 18px;color:#fff;"><h4 style="margin:0 0 5px;font-family:var(--font-display);font-weight:700;font-size:15px;color:#fff;">{{ e1_title }}</h4><p style="margin:0;font-size:12.5px;line-height:1.45;color:rgba(255,255,255,0.88);">{{ e1_sub }}</p></div>
+            <div style="background:#7f8690;border-radius:12px;padding:16px 18px;color:#fff;"><h4 style="margin:0 0 5px;font-family:var(--font-display);font-weight:700;font-size:15px;color:#fff;">{{ e2_title }}</h4><p style="margin:0;font-size:12.5px;line-height:1.45;color:rgba(255,255,255,0.88);">{{ e2_sub }}</p></div>
+            <div style="background:#7f8690;border-radius:12px;padding:16px 18px;color:#fff;"><h4 style="margin:0 0 5px;font-family:var(--font-display);font-weight:700;font-size:15px;color:#fff;">{{ e3_title }}</h4><p style="margin:0;font-size:12.5px;line-height:1.45;color:rgba(255,255,255,0.88);">{{ e3_sub }}</p></div>
+            <div style="background:#7f8690;border-radius:12px;padding:16px 18px;color:#fff;"><h4 style="margin:0 0 5px;font-family:var(--font-display);font-weight:700;font-size:15px;color:#fff;">{{ e4_title }}</h4><p style="margin:0;font-size:12.5px;line-height:1.45;color:rgba(255,255,255,0.88);">{{ e4_sub }}</p></div>
+          </div>
+
+          <!-- ARQUITECTURA -->
+          <div style="display:grid;grid-template-columns:34px 1fr;gap:18px;align-items:center;">
+            <div style="display:flex;align-items:center;justify-content:center;"><span style="writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--font-display);font-weight:800;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--grey-400);">{{ lbl_arquitectura }}</span></div>
+            <div style="display:flex;align-items:center;gap:12px;">
+
+              <!-- Nodos de computación segura (recuadro punteado) -->
+              <div style="flex:2.1;border:2px dashed var(--indigo-300);border-radius:16px;padding:16px 14px;background:var(--grey-50);display:flex;flex-direction:column;gap:8px;">
+                <div style="display:flex;align-items:center;gap:9px;">
+                  <div style="text-align:center;color:#6b7280;flex:none;"><svg viewBox="0 0 24 28" width="30" height="34" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="12" cy="5" rx="9" ry="3.4"/><path d="M3 5v18c0 1.9 4 3.4 9 3.4s9-1.5 9-3.4V5"/><path d="M3 14c0 1.9 4 3.4 9 3.4s9-1.5 9-3.4"/></svg><div style="font-size:10px;color:var(--grey-500);font-weight:600;margin-top:1px;">Data</div></div>
+                  <svg viewBox="0 0 30 20" width="28" height="18" style="flex:none;"><line x1="2" y1="10" x2="20" y2="10" stroke="var(--red-600)" stroke-width="2.6"/><path d="M18 4 L18 16 L28 10 Z" fill="var(--red-600)"/></svg>
+                  <div style="flex:1;background:#fff;border:1.5px solid var(--border-default);border-radius:11px;padding:9px 12px;display:flex;align-items:center;justify-content:center;gap:12px;box-shadow:var(--shadow-xs);">
+                    <div style="text-align:center;color:var(--red-600);"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.9"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg><div style="font-size:9px;color:var(--grey-500);font-weight:600;margin-top:1px;">cache</div></div>
+                    <div style="background:var(--red-600);color:#fff;font-family:var(--font-display);font-weight:800;font-size:11px;padding:6px 9px;border-radius:6px;letter-spacing:0.03em;">CORE</div>
+                    <div style="text-align:center;color:var(--red-600);"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 21s-7-4.6-7-10a3.9 3.9 0 0 1 7-2.4A3.9 3.9 0 0 1 19 11c0 5.4-7 10-7 10z"/></svg><div style="font-size:9px;color:var(--grey-500);font-weight:600;margin-top:1px;">monitor</div></div>
+                  </div>
+                  <div style="flex:none;" title="firewall"><svg viewBox="0 0 28 28" width="30" height="30"><g stroke="#6b7280" stroke-width="1.5" fill="none"><rect x="3" y="9" width="22" height="16" rx="1"/><line x1="3" y1="14.3" x2="25" y2="14.3"/><line x1="3" y1="19.6" x2="25" y2="19.6"/><line x1="11" y1="9" x2="11" y2="14.3"/><line x1="19" y1="9" x2="19" y2="14.3"/><line x1="7" y1="14.3" x2="7" y2="19.6"/><line x1="15" y1="14.3" x2="15" y2="19.6"/><line x1="22" y1="14.3" x2="22" y2="19.6"/><line x1="11" y1="19.6" x2="11" y2="25"/><line x1="19" y1="19.6" x2="19" y2="25"/></g><path d="M14 1.5c1.8 2.4 3.4 3.6 2.6 5.8-.4 1.1-1.9 1.2-2.1.2-.4.8-1.3 1.2-1.1 2.3.1.7-.6 1-1.1.8-1.1-.5-1.8-1.6-1.8-2.8 0-1.9 1.9-2.9 3.5-6.3z" fill="var(--red-600)"/></svg></div>
+                </div>
+                <div style="text-align:center;color:var(--grey-400);font-size:20px;line-height:0.4;letter-spacing:2px;">⋮</div>
+                <div style="display:flex;align-items:center;gap:9px;">
+                  <div style="text-align:center;color:#6b7280;flex:none;"><svg viewBox="0 0 24 28" width="30" height="34" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="12" cy="5" rx="9" ry="3.4"/><path d="M3 5v18c0 1.9 4 3.4 9 3.4s9-1.5 9-3.4V5"/><path d="M3 14c0 1.9 4 3.4 9 3.4s9-1.5 9-3.4"/></svg><div style="font-size:10px;color:var(--grey-500);font-weight:600;margin-top:1px;">Data</div></div>
+                  <svg viewBox="0 0 30 20" width="28" height="18" style="flex:none;"><line x1="2" y1="10" x2="20" y2="10" stroke="var(--red-600)" stroke-width="2.6"/><path d="M18 4 L18 16 L28 10 Z" fill="var(--red-600)"/></svg>
+                  <div style="flex:1;background:#fff;border:1.5px solid var(--border-default);border-radius:11px;padding:9px 12px;display:flex;align-items:center;justify-content:center;gap:12px;box-shadow:var(--shadow-xs);">
+                    <div style="text-align:center;color:var(--red-600);"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.9"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg><div style="font-size:9px;color:var(--grey-500);font-weight:600;margin-top:1px;">cache</div></div>
+                    <div style="background:var(--red-600);color:#fff;font-family:var(--font-display);font-weight:800;font-size:11px;padding:6px 9px;border-radius:6px;letter-spacing:0.03em;">CORE</div>
+                    <div style="text-align:center;color:var(--red-600);"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 21s-7-4.6-7-10a3.9 3.9 0 0 1 7-2.4A3.9 3.9 0 0 1 19 11c0 5.4-7 10-7 10z"/></svg><div style="font-size:9px;color:var(--grey-500);font-weight:600;margin-top:1px;">monitor</div></div>
+                  </div>
+                  <div style="flex:none;" title="firewall"><svg viewBox="0 0 28 28" width="30" height="30"><g stroke="#6b7280" stroke-width="1.5" fill="none"><rect x="3" y="9" width="22" height="16" rx="1"/><line x1="3" y1="14.3" x2="25" y2="14.3"/><line x1="3" y1="19.6" x2="25" y2="19.6"/><line x1="11" y1="9" x2="11" y2="14.3"/><line x1="19" y1="9" x2="19" y2="14.3"/><line x1="7" y1="14.3" x2="7" y2="19.6"/><line x1="15" y1="14.3" x2="15" y2="19.6"/><line x1="22" y1="14.3" x2="22" y2="19.6"/><line x1="11" y1="19.6" x2="11" y2="25"/><line x1="19" y1="19.6" x2="19" y2="25"/></g><path d="M14 1.5c1.8 2.4 3.4 3.6 2.6 5.8-.4 1.1-1.9 1.2-2.1.2-.4.8-1.3 1.2-1.1 2.3.1.7-.6 1-1.1.8-1.1-.5-1.8-1.6-1.8-2.8 0-1.9 1.9-2.9 3.5-6.3z" fill="var(--red-600)"/></svg></div>
+                </div>
+              </div>
+
+              <!-- flecha → -->
+              <svg viewBox="0 0 40 24" width="40" height="24" style="flex:none;"><line x1="2" y1="12" x2="28" y2="12" stroke="var(--red-600)" stroke-width="3"/><path d="M25 5 L25 19 L38 12 Z" fill="var(--red-600)"/></svg>
+
+              <!-- Nodo coordinador -->
+              <div style="flex:1;background:#fff;border:1.5px solid var(--border-default);border-radius:14px;padding:14px 10px;display:flex;align-items:center;justify-content:center;gap:12px;box-shadow:var(--shadow-sm);">
+                <div style="text-align:center;color:var(--red-600);"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg><div style="font-size:9px;color:var(--grey-500);font-weight:600;margin-top:1px;">{{ utile_nodes }}</div></div>
+                <div style="background:var(--red-600);color:#fff;font-family:var(--font-display);font-weight:800;font-size:11px;padding:6px 9px;border-radius:6px;letter-spacing:0.03em;">GRID</div>
+                <div style="text-align:center;color:var(--red-600);"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 21s-7-4.6-7-10a3.9 3.9 0 0 1 7-2.4A3.9 3.9 0 0 1 19 11c0 5.4-7 10-7 10z"/></svg><div style="font-size:9px;color:var(--grey-500);font-weight:600;margin-top:1px;">monitor</div></div>
+              </div>
+
+              <!-- flecha ← -->
+              <svg viewBox="0 0 40 24" width="40" height="24" style="flex:none;"><line x1="38" y1="12" x2="12" y2="12" stroke="var(--red-600)" stroke-width="3"/><path d="M15 5 L15 19 L2 12 Z" fill="var(--red-600)"/></svg>
+
+              <!-- Nodo de aplicación -->
+              <div style="flex:1;background:#fff;border:1.5px solid var(--border-default);border-radius:14px;padding:14px 10px;display:flex;align-items:center;justify-content:center;gap:14px;box-shadow:var(--shadow-sm);">
+                <div style="text-align:center;color:#3a3f47;"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 15v2M11.5 11v6M16 8v9"/></svg><div style="font-size:9px;color:var(--grey-500);font-weight:600;margin-top:1px;">Dashboard</div></div>
+                <div style="text-align:center;color:#3a3f47;"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.2 5.2l2.1 2.1M16.7 16.7l2.1 2.1M18.8 5.2l-2.1 2.1M7.3 16.7l-2.1 2.1"/></svg><div style="font-size:9px;color:var(--grey-500);font-weight:600;margin-top:1px;">API</div></div>
+                <div style="text-align:center;color:#3a3f47;"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5a2.6 2.6 0 0 0-4.8-1.3A2.6 2.6 0 0 0 3.8 6 2.6 2.6 0 0 0 3 10.6 2.7 2.7 0 0 0 4 15a2.6 2.6 0 0 0 4.2 2.1A2.6 2.6 0 0 0 12 18.5z"/><path d="M12 5a2.6 2.6 0 0 1 4.8-1.3A2.6 2.6 0 0 1 20.2 6 2.6 2.6 0 0 1 21 10.6 2.7 2.7 0 0 1 20 15a2.6 2.6 0 0 1-4.2 2.1A2.6 2.6 0 0 1 12 18.5z"/></svg><div style="font-size:9px;color:var(--grey-500);font-weight:600;margin-top:1px;">ML</div></div>
+              </div>
+
+            </div>
+          </div>
+
         </div>
       </div>
+      <p style="margin:28px 0 0;font-size:13px;color:var(--grey-500);display:flex;align-items:center;gap:8px;">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--red-600)" stroke-width="2" stroke-linejoin="round" style="flex:none;"><path d="M12 2 4 5v6c0 5 3.4 8.5 8 10 4.6-1.5 8-5 8-10V5z"/></svg>{{ utile_foot }}
+      </p>
     </div>
   </section>
 
@@ -326,49 +406,108 @@
 
       <svg viewBox="0 0 1000 120" preserveAspectRatio="none" style="display:block;width:100%;height:104px;" aria-hidden="true">
         <g fill="none" stroke="var(--indigo-700)" stroke-width="2.4" vector-effect="non-scaling-stroke">
-          <path d="M300 4 C 300 62, 115 56, 115 110" stroke-dasharray="2 10" style="animation:phmtFlowDown 1.2s linear infinite;"/>
-          <path d="M440 4 C 440 62, 360 56, 360 110" stroke-dasharray="2 10" style="animation:phmtFlowDown 1.2s linear infinite;"/>
-          <path d="M530 4 C 530 62, 612 56, 612 110" stroke-dasharray="2 10" style="animation:phmtFlowDown 1.2s linear infinite;"/>
-          <path d="M670 4 C 670 62, 857 56, 857 110" stroke-dasharray="2 10" style="animation:phmtFlowDown 1.2s linear infinite;"/>
+          <path d="M430 4 C 430 62, 174 56, 174 110" stroke-dasharray="2 10" style="animation:phmtFlowDown 1.2s linear infinite;"/>
+          <path d="M470 4 C 470 62, 449 56, 449 110" stroke-dasharray="2 10" style="animation:phmtFlowDown 1.2s linear infinite;"/>
+          <path d="M530 4 C 530 62, 657 56, 657 110" stroke-dasharray="2 10" style="animation:phmtFlowDown 1.2s linear infinite;"/>
+          <path d="M570 4 C 570 62, 864 56, 864 110" stroke-dasharray="2 10" style="animation:phmtFlowDown 1.2s linear infinite;"/>
         </g>
         <g fill="none" stroke="var(--red-600)" stroke-width="2" vector-effect="non-scaling-stroke">
-          <path d="M143 110 C 143 56, 330 62, 330 4" stroke-dasharray="2 10" style="animation:phmtFlowDown 1.4s linear infinite;"/>
-          <path d="M388 110 C 388 56, 470 62, 470 4" stroke-dasharray="2 10" style="animation:phmtFlowDown 1.4s linear infinite;"/>
-          <path d="M640 110 C 640 56, 560 62, 560 4" stroke-dasharray="2 10" style="animation:phmtFlowDown 1.4s linear infinite;"/>
-          <path d="M885 110 C 885 56, 700 62, 700 4" stroke-dasharray="2 10" style="animation:phmtFlowDown 1.4s linear infinite;"/>
+          <path d="M202 110 C 202 56, 450 62, 450 4" stroke-dasharray="2 10" style="animation:phmtFlowDown 1.4s linear infinite;"/>
+          <path d="M477 110 C 477 56, 490 62, 490 4" stroke-dasharray="2 10" style="animation:phmtFlowDown 1.4s linear infinite;"/>
+          <path d="M685 110 C 685 56, 510 62, 510 4" stroke-dasharray="2 10" style="animation:phmtFlowDown 1.4s linear infinite;"/>
+          <path d="M892 110 C 892 56, 550 62, 550 4" stroke-dasharray="2 10" style="animation:phmtFlowDown 1.4s linear infinite;"/>
         </g>
         <g>
-          <path d="M108 102 L122 102 L115 113 Z" fill="var(--indigo-700)"/>
-          <path d="M353 102 L367 102 L360 113 Z" fill="var(--indigo-700)"/>
-          <path d="M605 102 L619 102 L612 113 Z" fill="var(--indigo-700)"/>
-          <path d="M850 102 L864 102 L857 113 Z" fill="var(--indigo-700)"/>
-          <path d="M323 12 L337 12 L330 1 Z" fill="var(--red-600)"/>
-          <path d="M463 12 L477 12 L470 1 Z" fill="var(--red-600)"/>
-          <path d="M553 12 L567 12 L560 1 Z" fill="var(--red-600)"/>
-          <path d="M693 12 L707 12 L700 1 Z" fill="var(--red-600)"/>
+          <path d="M167 102 L181 102 L174 113 Z" fill="var(--indigo-700)"/>
+          <path d="M442 102 L456 102 L449 113 Z" fill="var(--indigo-700)"/>
+          <path d="M650 102 L664 102 L657 113 Z" fill="var(--indigo-700)"/>
+          <path d="M857 102 L871 102 L864 113 Z" fill="var(--indigo-700)"/>
+          <path d="M443 12 L457 12 L450 1 Z" fill="var(--red-600)"/>
+          <path d="M483 12 L497 12 L490 1 Z" fill="var(--red-600)"/>
+          <path d="M503 12 L517 12 L510 1 Z" fill="var(--red-600)"/>
+          <path d="M543 12 L557 12 L550 1 Z" fill="var(--red-600)"/>
         </g>
       </svg>
 
-      <!-- Nodos de computación -->
+      <!-- Nodos de computación (FISABIO incluye a su proveedor de datos) -->
       <div style="position:relative;border:2px dashed var(--indigo-300);border-radius:18px;padding:34px 22px 24px;margin-top:2px;">
         <span style="position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--grey-50);padding:0 14px;font-family:var(--font-display);font-weight:800;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--indigo-700);">{{ nodes_label }}</span>
-        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;">
-          <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:14px;box-shadow:var(--shadow-sm);padding:22px 16px;display:flex;align-items:center;justify-content:center;transition:transform 200ms,box-shadow 200ms;" style-hover="transform:translateY(-4px);box-shadow:var(--shadow-lg);">
-            <img src="assets/logos/FISABIO_Blue.svg" alt="FISABIO" style="max-height:52px;max-width:150px;width:auto;height:auto;object-fit:contain;">
+        <div style="display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:16px;align-items:stretch;">
+          <!-- FISABIO + su proveedor de datos (Conselleria de Sanitat) -->
+          <div title="{{ provider_desc }}" style="background:#fff;border:1px solid var(--border-subtle);border-radius:14px;box-shadow:var(--shadow-sm);padding:18px 16px;display:flex;align-items:center;justify-content:center;gap:14px;transition:transform 200ms,box-shadow 200ms;" style-hover="transform:translateY(-4px);box-shadow:var(--shadow-lg);">
+            <div style="text-align:center;">
+              <span style="display:block;font-family:var(--font-display);font-weight:800;font-size:8px;letter-spacing:0.04em;text-transform:uppercase;color:var(--red-600);margin-bottom:6px;">{{ provider_label }}</span>
+              <img src="assets/logos/Conselleria de Sanidad RGB.png" alt="Generalitat Valenciana · Conselleria de Sanitat" style="height:auto;width:auto;max-width:120px;max-height:50px;object-fit:contain;">
+            </div>
+            <div style="width:1px;align-self:stretch;background:var(--border-default);margin:4px 0;"></div>
+            <img src="assets/logos/FISABIO_Blue.svg" alt="FISABIO" style="max-height:46px;max-width:120px;width:auto;height:auto;object-fit:contain;">
           </div>
-          <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:14px;box-shadow:var(--shadow-sm);padding:22px 16px;display:flex;align-items:center;justify-content:center;transition:transform 200ms,box-shadow 200ms;" style-hover="transform:translateY(-4px);box-shadow:var(--shadow-lg);">
-            <img src="assets/logos/Isabial_color_only.svg" alt="ISABIAL" style="max-height:54px;max-width:150px;width:auto;height:auto;object-fit:contain;">
+          <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:14px;box-shadow:var(--shadow-sm);padding:18px 14px;display:flex;align-items:center;justify-content:center;transition:transform 200ms,box-shadow 200ms;" style-hover="transform:translateY(-4px);box-shadow:var(--shadow-lg);">
+            <img src="assets/logos/Isabial_color_only.svg" alt="ISABIAL" style="max-height:50px;max-width:140px;width:auto;height:auto;object-fit:contain;">
           </div>
-          <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:14px;box-shadow:var(--shadow-sm);padding:22px 16px;display:flex;align-items:center;justify-content:center;transition:transform 200ms,box-shadow 200ms;" style-hover="transform:translateY(-4px);box-shadow:var(--shadow-lg);">
-            <img src="assets/logos/logo-fighu_black.svg" alt="Fundació Hospital General de València" style="max-height:56px;max-width:120px;width:auto;height:auto;object-fit:contain;">
+          <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:14px;box-shadow:var(--shadow-sm);padding:18px 14px;display:flex;align-items:center;justify-content:center;transition:transform 200ms,box-shadow 200ms;" style-hover="transform:translateY(-4px);box-shadow:var(--shadow-lg);">
+            <img src="assets/logos/logo-fighu_black.svg" alt="Fundació Hospital General de València" style="max-height:52px;max-width:110px;width:auto;height:auto;object-fit:contain;">
           </div>
-          <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:14px;box-shadow:var(--shadow-sm);padding:22px 16px;display:flex;align-items:center;justify-content:center;transition:transform 200ms,box-shadow 200ms;" style-hover="transform:translateY(-4px);box-shadow:var(--shadow-lg);">
-            <img src="assets/logos/logo-iislafe-color.svg" alt="IIS La Fe" style="max-height:44px;max-width:160px;width:auto;height:auto;object-fit:contain;">
+          <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:14px;box-shadow:var(--shadow-sm);padding:18px 14px;display:flex;align-items:center;justify-content:center;transition:transform 200ms,box-shadow 200ms;" style-hover="transform:translateY(-4px);box-shadow:var(--shadow-lg);">
+            <img src="assets/logos/logo-iislafe-color.svg" alt="IIS La Fe" style="max-height:40px;max-width:150px;width:auto;height:auto;object-fit:contain;">
           </div>
         </div>
       </div>
     </div>
     <p style="text-align:center;margin:30px auto 0;font-size:13px;color:var(--grey-500);max-width:680px;">{{ part_footnote }}</p>
+  </section>
+
+  <!-- MAPA TERRITORIAL -->
+  <section style="background:var(--grey-50);border-top:1px solid var(--border-subtle);border-bottom:1px solid var(--border-subtle);">
+    <div style="max-width:1120px;margin:0 auto;padding:80px 32px;">
+      <div style="display:grid;grid-template-columns:1fr 1.05fr;gap:56px;align-items:center;">
+
+        <!-- Texto + lista de nodos -->
+        <div>
+          <span style="display:block;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--red-600);margin-bottom:12px;">{{ map_tag }}</span>
+          <h2 style="margin:0 0 16px;font-family:var(--font-display);font-weight:800;font-size:32px;line-height:1.16;letter-spacing:-0.02em;color:var(--indigo-700);">{{ map_title }}</h2>
+          <p style="margin:0 0 28px;font-size:16px;line-height:1.6;color:var(--grey-600);">{{ map_sub }}</p>
+          <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;">
+            <li style="display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--border-subtle);border-radius:12px;padding:14px 18px;box-shadow:var(--shadow-xs);">
+              <span style="position:relative;flex:none;width:14px;height:14px;"><span style="position:absolute;inset:0;border-radius:50%;background:#ff66b3;"></span><span style="position:absolute;top:-4px;left:-4px;width:22px;height:22px;border-radius:50%;border:2px solid #ff66b3;animation:phmtRing 2.4s ease-in-out infinite;"></span></span>
+              <span style="font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--indigo-700);">{{ map_n1 }}</span>
+              <span style="margin-left:auto;font-size:13px;color:var(--grey-500);font-weight:600;">{{ map_c1 }}</span>
+            </li>
+            <li style="display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--border-subtle);border-radius:12px;padding:14px 18px;box-shadow:var(--shadow-xs);">
+              <span style="flex:none;width:14px;height:14px;border-radius:50%;background:#99ccff;"></span>
+              <span style="font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--indigo-700);">{{ map_n2 }}</span>
+              <span style="margin-left:auto;font-size:13px;color:var(--grey-500);font-weight:600;">{{ map_c2 }}</span>
+            </li>
+            <li style="display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--border-subtle);border-radius:12px;padding:14px 18px;box-shadow:var(--shadow-xs);">
+              <span style="flex:none;width:14px;height:14px;border-radius:50%;background:#8c56bc;"></span>
+              <span style="font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--indigo-700);">{{ map_n3 }}</span>
+              <span style="margin-left:auto;font-size:13px;color:var(--grey-500);font-weight:600;">{{ map_c3 }}</span>
+            </li>
+            <li style="display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--border-subtle);border-radius:12px;padding:14px 18px;box-shadow:var(--shadow-xs);">
+              <span style="flex:none;width:14px;height:14px;border-radius:50%;background:#ff6666;"></span>
+              <span style="font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--indigo-700);">{{ map_n4 }}</span>
+              <span style="margin-left:auto;font-size:13px;color:var(--grey-500);font-weight:600;">{{ map_c4 }}</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Mapa sobre panel índigo (el SVG está diseñado para fondo oscuro) -->
+        <div style="position:relative;max-width:540px;margin:0 auto;width:100%;background:var(--indigo-800);border-radius:20px;box-shadow:var(--shadow-lg);padding:22px 22px 12px;">
+          <div style="position:relative;">
+            <img src="assets/figures/Mapa.png" alt="Mapa de la Comunitat Valenciana con las instituciones de la red federada" style="display:block;width:100%;height:auto;">
+            <svg viewBox="0 0 502 471" preserveAspectRatio="xMidYMid meet" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;" aria-hidden="true">
+              <!-- pulsos sobre los marcadores del mapa principal (coords del SVG original) -->
+              <circle cx="135.2" cy="190.3" r="9" fill="none" stroke="var(--indigo-500)" stroke-width="2.4" style="transform-box:fill-box;transform-origin:center;animation:phmtMapPulse 2.8s ease-out infinite;"/>
+              <circle cx="121.2" cy="358.3" r="9" fill="none" stroke="#ff6666" stroke-width="2.6" style="transform-box:fill-box;transform-origin:center;animation:phmtMapPulse 2.8s ease-out infinite 1.4s;"/>
+            </svg>
+          </div>
+          <p style="text-align:center;margin:14px 0 6px;font-size:12px;font-weight:600;letter-spacing:0.04em;color:var(--indigo-200);display:flex;align-items:center;justify-content:center;gap:8px;">
+            <span style="width:8px;height:8px;border-radius:50%;background:var(--success-500,#22c55e);display:inline-block;animation:phmtPulse 1.8s ease-in-out infinite;"></span>{{ map_foot }}
+          </p>
+        </div>
+
+      </div>
+    </div>
   </section>
 
   <!-- TECNOLOGÍAS CLAVE -->
@@ -438,6 +577,18 @@ const TRANSLATIONS = {
     p4_title: 'Seguridad y privacidad', p4_sub: 'Tecnologías avanzadas para proteger los datos sensibles en todo momento.',
     p5_title: 'Uso responsable del dato', p5_sub: 'Cumplimiento de marcos regulatorios y principios éticos.',
     p6_title: 'Soberanía por diseño', p6_sub: 'Cada entidad mantiene el control total sobre sus datos en cada interacción.',
+    utile_tag: 'Tecnología · Aprendizaje federado',
+    utile_title: 'UTile: la tecnología que hace posible el aprendizaje federado',
+    utile_intro: 'UTile es la plataforma de aprendizaje federado desarrollada por GMV. Permite entrenar modelos sobre los datos de cada institución sin que estos abandonen nunca su nodo: solo se intercambian los parámetros del modelo, garantizando la privacidad de los datos clínicos.',
+    utile_by: 'Desarrollado por',
+    utile_secure: 'Seguro', utile_nodes: 'nodos',
+    lbl_actores: 'Actores', lbl_entidades: 'Entidades', lbl_arquitectura: 'Arquitectura',
+    act_provider: 'Proveedores de datos', act_coord: 'Coordinador / Broker / Promotor', act_dev: 'Científicos de datos y desarrolladores',
+    e1_title: 'Fuentes de datos', e1_sub: 'Datos clínicos en bruto (raw data) que residen en cada institución.',
+    e2_title: 'Nodo de computación segura', e2_sub: 'Donde viven los tensores y nunca abandonan el nodo. Protegido y aislado.',
+    e3_title: 'Nodo coordinador', e3_sub: 'Responsable de coordinar y administrar los nodos de computación.',
+    e4_title: 'Nodo de aplicación', e4_sub: 'Donde se desarrollan y despliegan las aplicaciones, modelos y cuadros de mando.',
+    utile_foot: 'Los datos nunca salen de su nodo de computación segura: solo viajan los parámetros del modelo.',
     arch_tag: 'Arquitectura', arch_title: 'Tres capas que estructuran el sistema',
     layer1_title: 'Capa de acceso a datos', layer1_sub: 'Acceso controlado a los datos de cada nodo, asegurando que las solicitudes cumplen las políticas establecidas.',
     layer1_tag1: 'Bases de datos y repositorios', layer1_tag2: 'Validación de permisos', layer1_tag3: 'Entornos seguros de ejecución',
@@ -458,7 +609,13 @@ const TRANSLATIONS = {
     part_sub: 'Una red de nodos federados gestionados por distintas instituciones. Cada entidad puede actuar como proveedor de datos, consumidor de datos o nodo de computación.',
     legend_model: 'El modelo global se envía a cada nodo', legend_params: 'Vuelven los parámetros aprendidos',
     coordinator_label: 'Nodo Coordinador', nodes_label: 'Nodos de computación',
+    provider_label: 'Proveedor de datos', provider_desc: 'La Conselleria de Sanitat aporta los datos clínicos al nodo de computación de FISABIO.',
     part_footnote: 'Los datos clínicos nunca salen de cada institución: viaja el modelo y regresan únicamente los parámetros aprendidos que mejoran el modelo global.',
+    map_tag: 'Distribución territorial', map_title: 'Una red que cubre la Comunitat Valenciana',
+    map_sub: 'Las instituciones participantes están distribuidas por el territorio valenciano. Cada nodo procesa sus datos en local y solo intercambia con la red los parámetros del modelo.',
+    map_n1: 'FISABIO · Coordinador', map_n2: 'IIS La Fe', map_n3: 'FIHGUV (Hospital General)', map_n4: 'ISABIAL',
+    map_c1: 'València', map_c2: 'València', map_c3: 'València', map_c4: 'Alacant',
+    map_foot: 'Nodos activos de la red federada',
     tech_tag: 'Tecnologías clave', tech_title: 'El stack que hace posible la federación',
     tech1_title: 'Aprendizaje federado', tech1_sub: 'Entrena modelos sin mover los datos de cada institución.',
     tech2_title: 'Tecnologías PET', tech2_sub: 'Privacy Enhancing Technologies para la protección del dato.',
@@ -489,6 +646,18 @@ const TRANSLATIONS = {
     p4_title: 'Security and privacy', p4_sub: 'Advanced technologies to protect sensitive data at all times.',
     p5_title: 'Responsible data use', p5_sub: 'Compliance with regulatory frameworks and ethical principles.',
     p6_title: 'Sovereignty by design', p6_sub: 'Each entity maintains full control over its data in every interaction.',
+    utile_tag: 'Technology · Federated learning',
+    utile_title: 'UTile: the technology that makes federated learning possible',
+    utile_intro: 'UTile is the federated learning platform developed by GMV. It trains models on each institution\'s data without that data ever leaving its node: only the model parameters are exchanged, safeguarding the privacy of clinical data.',
+    utile_by: 'Developed by',
+    utile_secure: 'Secure', utile_nodes: 'nodes',
+    lbl_actores: 'Actors', lbl_entidades: 'Entities', lbl_arquitectura: 'Architecture',
+    act_provider: 'Data providers', act_coord: 'Coordinator / Broker / Promoter', act_dev: 'Data scientists & developers',
+    e1_title: 'Data sources', e1_sub: 'Raw clinical data residing at each institution.',
+    e2_title: 'Secure computation node', e2_sub: 'Where the tensors live and never leave the node. Protected and isolated.',
+    e3_title: 'Coordinator node', e3_sub: 'Responsible for coordinating and managing the computation nodes.',
+    e4_title: 'Application node', e4_sub: 'Where applications, models and dashboards are developed and deployed.',
+    utile_foot: 'Data never leaves its secure computation node: only the model parameters travel.',
     arch_tag: 'Architecture', arch_title: 'Three layers structuring the system',
     layer1_title: 'Data access layer', layer1_sub: 'Controlled access to each node\'s data, ensuring requests comply with established policies.',
     layer1_tag1: 'Databases and repositories', layer1_tag2: 'Permission validation', layer1_tag3: 'Secure execution environments',
@@ -509,7 +678,13 @@ const TRANSLATIONS = {
     part_sub: 'A network of federated nodes managed by different institutions. Each entity can act as a data provider, data consumer or computing node.',
     legend_model: 'The global model is sent to each node', legend_params: 'Learned parameters are returned',
     coordinator_label: 'Coordinating node', nodes_label: 'Computing nodes',
+    provider_label: 'Data provider', provider_desc: 'The Regional Ministry of Health (Conselleria de Sanitat) supplies the clinical data to the FISABIO computing node.',
     part_footnote: 'Clinical data never leaves each institution: the model travels and only the learned parameters that improve the global model are returned.',
+    map_tag: 'Territorial distribution', map_title: 'A network spanning the Valencian Community',
+    map_sub: 'The participating institutions are distributed across the Valencian territory. Each node processes its data locally and only exchanges the model parameters with the network.',
+    map_n1: 'FISABIO · Coordinator', map_n2: 'IIS La Fe', map_n3: 'FIHGUV (General Hospital)', map_n4: 'ISABIAL',
+    map_c1: 'València', map_c2: 'València', map_c3: 'València', map_c4: 'Alicante',
+    map_foot: 'Active nodes of the federated network',
     tech_tag: 'Key technologies', tech_title: 'The stack that makes federation possible',
     tech1_title: 'Federated learning', tech1_sub: 'Train models without moving data from each institution.',
     tech2_title: 'PET technologies', tech2_sub: 'Privacy Enhancing Technologies for data protection.',
@@ -540,6 +715,18 @@ const TRANSLATIONS = {
     p4_title: 'Seguretat i privacitat', p4_sub: "Tecnologies avançades per a protegir les dades sensibles en tot moment.",
     p5_title: 'Ús responsable de la dada', p5_sub: "Compliment de marcs reguladors i principis ètics.",
     p6_title: 'Sobirania per disseny', p6_sub: "Cada entitat manté el control total sobre les seues dades en cada interacció.",
+    utile_tag: 'Tecnologia · Aprenentatge federat',
+    utile_title: 'UTile: la tecnologia que fa possible l\'aprenentatge federat',
+    utile_intro: "UTile és la plataforma d'aprenentatge federat desenvolupada per GMV. Permet entrenar models sobre les dades de cada institució sense que estes isquen mai del seu node: només s'intercanvien els paràmetres del model, garantint la privacitat de les dades clíniques.",
+    utile_by: 'Desenvolupat per',
+    utile_secure: 'Segur', utile_nodes: 'nodes',
+    lbl_actores: 'Actors', lbl_entidades: 'Entitats', lbl_arquitectura: 'Arquitectura',
+    act_provider: 'Proveïdors de dades', act_coord: 'Coordinador / Broker / Promotor', act_dev: 'Científics de dades i desenvolupadors',
+    e1_title: 'Fonts de dades', e1_sub: 'Dades clíniques en brut (raw data) que residixen en cada institució.',
+    e2_title: 'Node de computació segura', e2_sub: 'On viuen els tensors i mai no abandonen el node. Protegit i aïllat.',
+    e3_title: 'Node coordinador', e3_sub: 'Responsable de coordinar i administrar els nodes de computació.',
+    e4_title: 'Node d\'aplicació', e4_sub: 'On es desenvolupen i despleguen les aplicacions, models i quadres de comandament.',
+    utile_foot: 'Les dades mai no ixen del seu node de computació segura: només viatgen els paràmetres del model.',
     arch_tag: 'Arquitectura', arch_title: 'Tres capes que estructuren el sistema',
     layer1_title: "Capa d'accés a dades", layer1_sub: "Accés controlat a les dades de cada node, assegurant que les sol·licituds complixen les polítiques establides.",
     layer1_tag1: 'Bases de dades i repositoris', layer1_tag2: 'Validació de permisos', layer1_tag3: "Entorns segurs d'execució",
@@ -560,7 +747,13 @@ const TRANSLATIONS = {
     part_sub: "Una xarxa de nodes federats gestionats per diferents institucions. Cada entitat pot actuar com a proveïdora de dades, consumidora de dades o node de computació.",
     legend_model: 'El model global es envia a cada node', legend_params: 'Tornen els paràmetres apresos',
     coordinator_label: 'Node Coordinador', nodes_label: 'Nodes de computació',
+    provider_label: 'Proveïdor de dades', provider_desc: 'La Conselleria de Sanitat aporta les dades clíniques al node de computació de FISABIO.',
     part_footnote: "Les dades clíniques mai no ixen de cada institució: viatja el model i tornen únicament els paràmetres apresos que milloren el model global.",
+    map_tag: 'Distribució territorial', map_title: 'Una xarxa que cobrix la Comunitat Valenciana',
+    map_sub: "Les institucions participants estan distribuïdes pel territori valencià. Cada node processa les seues dades en local i només intercanvia amb la xarxa els paràmetres del model.",
+    map_n1: 'FISABIO · Coordinador', map_n2: 'IIS La Fe', map_n3: 'FIHGUV (Hospital General)', map_n4: 'ISABIAL',
+    map_c1: 'València', map_c2: 'València', map_c3: 'València', map_c4: 'Alacant',
+    map_foot: 'Nodes actius de la xarxa federada',
     tech_tag: 'Tecnologies clau', tech_title: 'L\'stack que fa possible la federació',
     tech1_title: 'Aprenentatge federat', tech1_sub: "Entrena models sense moure les dades de cada institució.",
     tech2_title: 'Tecnologies PET', tech2_sub: "Privacy Enhancing Technologies per a la protecció de la dada.",

@@ -1,0 +1,86 @@
+/* ============================================================
+   GVA PharmaTrace Hub — Color tokens
+   Institutional palette per FISABIO "Manual d'Identitat
+   Corporativa" (Gamma cromàtica). The PharmaTrace Hub mark
+   reuses FISABIO's Color Primari (#1D0F44) plus a project red.
+   ============================================================ */
+:root {
+  /* --- Brand primary (FISABIO Color Primari / Pantone 2766CP) --- */
+  --indigo-900: #0d0720;
+  --indigo-800: #140a30;
+  --indigo-700: #1d0f44;   /* core brand indigo */
+  --indigo-600: #2c1c5e;
+  --indigo-500: #443680;
+  --indigo-400: #6a5ca6;
+  --indigo-300: #9a8fc7;
+  --indigo-200: #bfbee0;   /* FISABIO Color Secundari (270CP 60%) */
+  --indigo-100: #e2e1f1;
+  --indigo-50:  #f2f1f9;
+
+  /* --- Project red (PharmaTrace Hub accent) --- */
+  --red-700: #9c0a23;
+  --red-600: #c80f2e;      /* core brand red */
+  --red-500: #e0223f;
+  --red-300: #f08a99;
+  --red-100: #fbdde2;
+  --red-50:  #fdeef0;
+
+  /* --- Supporting pastels (FISABIO Secundari / Terciari) --- */
+  --sky-200:  #c9e1ea;     /* Color Secundari 552CP 80% */
+  --sky-100:  #e6f1f5;
+  --coral-400:#ff647d;     /* Color Terciari 1777CP */
+  --coral-200:#eaccce;     /* Color Terciari 691CP */
+
+  /* --- Neutrals (cool grey, biased toward indigo) --- */
+  --grey-900: #1a1726;
+  --grey-800: #2c2a37;
+  --grey-700: #3f3b4d;
+  --grey-600: #56526a;
+  --grey-500: #76728a;
+  --grey-400: #a09db0;
+  --grey-300: #c8c6d4;
+  --grey-200: #e4e3ec;
+  --grey-100: #f1f0f6;
+  --grey-50:  #f8f8fb;
+  --white:    #ffffff;
+  --black:    #11101a;
+
+  /* --- Semantic / status --- */
+  --success-600: #1f8a5b;
+  --success-100: #dcf1e8;
+  --warning-600: #c98a12;
+  --warning-100: #fbeecd;
+  --danger-600:  #c80f2e;
+  --danger-100:  #fbdde2;
+  --info-600:    #2c5fa6;
+  --info-100:    #dde7f5;
+
+  /* ============================================================
+     Semantic aliases — use these in components
+     ============================================================ */
+  --color-brand:          var(--indigo-700);
+  --color-brand-strong:   var(--indigo-800);
+  --color-brand-soft:     var(--indigo-100);
+  --color-accent:         var(--red-600);
+  --color-accent-strong:  var(--red-700);
+  --color-accent-soft:    var(--red-50);
+
+  --text-strong:    var(--indigo-700);
+  --text-body:      var(--grey-800);
+  --text-muted:     var(--grey-500);
+  --text-on-brand:  var(--white);
+  --text-link:      var(--indigo-600);
+
+  --surface-page:   var(--grey-50);
+  --surface-card:   var(--white);
+  --surface-sunken: var(--grey-100);
+  --surface-brand:  var(--indigo-700);
+  --surface-tint:   var(--indigo-50);
+
+  --border-subtle:  var(--grey-200);
+  --border-default: var(--grey-300);
+  --border-strong:  var(--grey-400);
+  --border-brand:   var(--indigo-700);
+
+  --focus-ring:     var(--indigo-400);
+}

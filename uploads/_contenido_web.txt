@@ -1,0 +1,174 @@
+INICIO
+¿Qué es GVA PharmaTrace Hub?
+GVA PharmaTrace Hub es una iniciativa promovida por la Conselleria de Sanidad de la Comunitat Valenciana, a través de FISABIO, orientada a la creación de un Espacio de Datos federado, seguro e interoperable en el ámbito sanitario.
+Su objetivo principal es integrar datos de distinta naturaleza —farmacológicos, genéticos, imagen médica y registros clínicos electrónicos— para impulsar la innovación en la investigación biomédica y mejorar el desarrollo y uso de tratamientos farmacológicos. 
+Nuestra misión
+El proyecto nace con la misión de:
+Impulsar la transformación digital del sistema sanitario, mediante la creación de un ciclo único del dato en investigación e innovación en salud. 
+Facilitar el acceso a datos de alto valor en un entorno seguro para investigadores, profesionales sanitarios y agentes del sector. 
+Mejorar la efectividad de los tratamientos farmacológicos y acelerar el desarrollo de nuevos medicamentos. 
+Favorecer la transferencia de conocimiento desde la investigación hasta su aplicación clínica. 
+¿Por qué es importante?
+El desarrollo de nuevos fármacos implica altos costes (superiores a los 2.000 millones de euros) y largos periodos (10–12 años), lo que hace necesario aprovechar mejor los datos disponibles. 
+En este contexto, el Espacio de Datos permite:
+Analizar la efectividad y seguridad de medicamentos
+Identificar interacciones farmacológicas
+Optimizar tratamientos según el perfil del paciente 
+¿Qué aporta la plataforma?
+GVA PharmaTrace Hub ofrece:
+Un entorno de compartición de datos federado, donde cada institución mantiene la soberanía de sus datos
+Capacidades de análisis avanzado e inteligencia artificial aplicadas a grandes volúmenes de información sanitaria
+Integración de datos clínicos, genéticos e imagen para una visión holística del paciente 
+Este enfoque permite avanzar hacia la medicina de las 5P: personalizada, predictiva, preventiva, participativa y poblacional. 
+Ámbito de aplicación
+El proyecto se inicia con un caso de uso centrado en:
+Distrofias hereditarias de la retina (Retinosis Pigmentaria), una enfermedad rara con alta complejidad genética y sin tratamientos efectivos consolidados. 
+A partir de esta base, el espacio de datos está diseñado para evolucionar hacia:
+Cáncer
+Enfermedades cardiovasculares
+Enfermedades neurodegenerativas 
+Ecosistema colaborativo
+El proyecto se desarrolla como una red federada que integra distintos nodos de investigación sanitaria de la Comunitat Valenciana, promoviendo:
+Colaboración público-privada
+Interoperabilidad entre instituciones
+Generación de conocimiento compartido 
+Impacto esperado
+GVA PharmaTrace Hub contribuirá a:
+Mejorar la calidad de la atención sanitaria
+Optimizar los recursos del sistema público de salud
+Acelerar la investigación biomédica
+Impulsar la medicina personalizada basada en datos
+Además, permitirá una gestión más eficiente de la farmacovigilancia y favorecerá la sostenibilidad del sistema sanitario. 
+Hacia una nueva medicina basada en datos
+El Espacio de Datos se posiciona como un elemento clave para la transformación digital del Sistema Nacional de Salud, facilitando el uso de datos masivos y técnicas de inteligencia artificial para:
+Identificar patrones clínicos complejos
+Descubrir nuevos biomarcadores
+Personalizar tratamientos según cada paciente
+Espacio de datos
+¿Qué es el Espacio de Datos?
+El Espacio de Datos de GVA PharmaTrace Hub es una infraestructura federada diseñada para permitir la compartición, acceso y análisis de datos sanitarios de forma segura, gobernada e interoperable.
+Su objetivo es facilitar la colaboración entre instituciones sanitarias y de investigación, garantizando al mismo tiempo la soberanía y privacidad de los datos, en cumplimiento de la normativa vigente.
+Principios del Espacio de Datos
+El diseño del Espacio de Datos se basa en los siguientes principios:
+Federación de datos: los datos permanecen en cada organización participante, evitando su transferencia innecesaria
+Gobernanza y control: los propietarios de los datos definen quién accede, cómo y bajo qué condiciones
+Interoperabilidad: uso de estándares internacionales para permitir el intercambio de información entre sistemas
+Seguridad y privacidad: aplicación de tecnologías avanzadas para proteger datos sensibles
+Uso responsable del dato: cumplimiento de marcos regulatorios y principios éticos
+Arquitectura del Espacio de Datos
+La arquitectura del sistema se estructura en tres capas principales:
+1. Capa de acceso a datos
+Permite el acceso controlado a los datos de cada nodo, asegurando que las solicitudes cumplen con las políticas establecidas.
+Incluye:
+Sistemas de acceso a bases de datos y repositorios
+Validación de permisos y condiciones de uso
+Entornos seguros de ejecución
+2. Capa de computación
+Encargada del procesamiento y análisis de los datos mediante modelos avanzados, incluyendo inteligencia artificial.
+Características:
+Soporte para entrenamiento de modelos
+Infraestructura computacional (CPU, GPU, memoria)
+Procesamiento distribuido sobre datos locales
+3. Capa de coordinación
+Gestiona el funcionamiento global del Espacio de Datos.
+Incluye:
+Registro de participantes
+Catálogo de activos de datos
+Gestión de identidades y autenticación
+Coordinación entre nodos
+Participantes del Espacio de Datos
+El Espacio de Datos está compuesto por una red de nodos federados gestionados por distintas instituciones:
+FISABIO: nodo coordinador y promotor
+IIS La Fe: proveedor de datos clínicos y genómicos a gran escala
+ISABIAL: nodo de investigación y análisis
+Fundación Hospital General de Valencia: nodo clínico y de validación
+Cada entidad puede actuar como:
+Proveedor de datos
+Consumidor de datos
+Nodo de computación
+Tecnologías clave
+El Espacio de Datos integra tecnologías avanzadas para garantizar su funcionamiento:
+Aprendizaje federado (Federated Learning): permite entrenar modelos sin mover los datos
+Tecnologías PET (Privacy Enhancing Technologies) para protección de datos
+Conectores de espacios de datos (EDC) para intercambio seguro
+Sistemas de autenticación (Keycloak) para control de acceso
+Estándares como OMOP, FHIR, DICOM o SNOMED-CT para interoperabilidad
+Seguridad y soberanía del dato
+El Espacio de Datos garantiza la protección de la información mediante:
+Cifrado de datos en reposo, en tránsito y en uso
+Control de acceso basado en políticas
+Aplicación del Reglamento General de Protección de Datos (RGPD)
+Uso de mecanismos que permiten a cada entidad mantener el control sobre sus datos
+Valor del Espacio de Datos
+El Espacio de Datos de GVA PharmaTrace Hub permite:
+Integrar datos clínicos, genéticos y de imagen
+Facilitar la investigación colaborativa
+Reducir costes y tiempos en el desarrollo de tratamientos
+Impulsar la medicina personalizada
+Mejorar la toma de decisiones clínicas
+Evolución del Espacio de Datos
+El modelo está diseñado para crecer de forma progresiva:
+Incorporación de nuevos nodos
+Integración con otros espacios de datos nacionales y europeos
+Ampliación a nuevas patologías y casos de uso
+Conclusión
+El Espacio de Datos de GVA PharmaTrace Hub constituye una infraestructura clave para la transformación digital del sistema sanitario, permitiendo un uso eficiente, seguro y colaborativo de los datos al servicio de la investigación y la mejora de la asistencia sanitaria.
+EQUIPO
+Un equipo multidisciplinar
+GVA PharmaTrace Hub está impulsado por un equipo que combina experiencia en bioinformática, inteligencia artificial, análisis de datos y ámbito clínico, garantizando una visión integral del proyecto.
+Entidades participantes
+FISABIO
+Coordinación del proyecto y gestión del Espacio de Datos
+IIS La Fe
+Datos clínicos y genómicos a gran escala
+ISABIAL
+Análisis de datos y modelos de IA
+Hospital General de Valencia
+Validación clínica y apoyo asistencial
+Perfiles clave
+Ingeniería de sistemas
+Infraestructura y nodos federados
+Ciencia de datos / Bioinformática
+Análisis, integración de datos y desarrollo de modelos
+ Equipo clínico e investigador
+Aplicación en práctica sanitaria
+Enfoque colaborativo
+El proyecto se desarrolla mediante una colaboración entre instituciones sanitarias, investigadores y expertos en datos, alineado con los principios de:
+Innovación en salud
+Seguridad del dato
+Medicina personalizada
+ÉTICA Y SEGURIDAD
+Compromiso con la privacidad y la ética
+GVA PharmaTrace Hub se basa en un modelo de uso del dato responsable, garantizando la protección de la información sanitaria y el respeto a los derechos de los pacientes.
+El proyecto cumple con la normativa vigente, incluyendo el Reglamento General de Protección de Datos (RGPD) y el Esquema Nacional de Seguridad (ENS).
+Protección de datos
+Se aplican mecanismos avanzados para asegurar la confidencialidad de la información:
+Cifrado de datos en almacenamiento y transmisión
+Control de accesos basado en roles y políticas
+Monitorización continua de la seguridad
+Tecnologías de privacidad
+El Espacio de Datos incorpora tecnologías diseñadas para proteger la información sensible:
+Aprendizaje federado: los datos no salen de cada institución
+Tecnologías PET (Privacy Enhancing Technologies)
+Procesamiento seguro de datos durante su uso
+Soberanía del dato
+Cada entidad participante mantiene el control sobre sus datos:
+Define condiciones de acceso y uso
+Establece restricciones mediante políticas
+Supervisa el cumplimiento de los acuerdos
+Gobernanza y transparencia
+El proyecto dispone de un modelo de gobernanza que garantiza:
+Uso ético y responsable de los datos
+Trazabilidad de las operaciones
+Evaluación continua de riesgos
+Principios éticos
+El desarrollo del proyecto se rige por:
+Respeto a la privacidad y dignidad de las personas
+Uso del dato orientado al beneficio social
+Transparencia en el tratamiento de la información
+Equidad y prevención de sesgos en modelos de IA
+Seguridad en todo el ciclo del dato
+La protección se garantiza en todas las fases:
+Datos en reposo
+Datos en tránsito
+Datos en uso

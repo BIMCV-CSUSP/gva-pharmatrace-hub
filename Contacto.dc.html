@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/gva-pharmatrace-hub-design-system-019f029c-e807-4be6-8e55-44649c0bec73/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/gva-pharmatrace-hub-design-system-019f029c-e807-4be6-8e55-44649c0bec73/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/gva-pharmatrace-hub-design-system-019f029c-e807-4be6-8e55-44649c0bec73/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/gva-pharmatrace-hub-design-system-019f029c-e807-4be6-8e55-44649c0bec73/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/gva-pharmatrace-hub-design-system-019f029c-e807-4be6-8e55-44649c0bec73/tokens/base.css">
+  <link rel="stylesheet" href="_ds/gva-pharmatrace-hub-design-system-019f029c-e807-4be6-8e55-44649c0bec73/styles.css">
+  <script src="_ds/gva-pharmatrace-hub-design-system-019f029c-e807-4be6-8e55-44649c0bec73/_ds_bundle.js"></script>
+  <style>
+    html { scroll-behavior: smooth; } body { margin: 0; }
+    .phmt-input { width:100%;box-sizing:border-box;height:46px;padding:0 14px;border:1px solid var(--border-default);border-radius:10px;font-size:14.5px;font-family:var(--font-body);color:var(--text-body);background:#fff;outline:none;transition:border-color 160ms,box-shadow 160ms; }
+    .phmt-input:focus { border-color:var(--indigo-500);box-shadow:0 0 0 3px rgba(79,70,229,0.12); }
+    .phmt-textarea { width:100%;box-sizing:border-box;min-height:140px;padding:12px 14px;border:1px solid var(--border-default);border-radius:10px;font-size:14.5px;font-family:var(--font-body);color:var(--text-body);background:#fff;outline:none;resize:vertical;transition:border-color 160ms,box-shadow 160ms; }
+    .phmt-textarea:focus { border-color:var(--indigo-500);box-shadow:0 0 0 3px rgba(79,70,229,0.12); }
+    .phmt-label { display:flex;flex-direction:column;gap:6px;font-size:13.5px;font-weight:600;color:var(--text-strong); }
+    .phmt-send-btn { display:inline-flex;align-items:center;justify-content:center;gap:8px;height:50px;padding:0 28px;background:var(--indigo-700);color:#fff;border:none;border-radius:12px;font-family:var(--font-display);font-weight:700;font-size:15px;cursor:pointer;transition:background 160ms,transform 120ms; }
+    .phmt-send-btn:hover { background:var(--indigo-800);transform:translateY(-1px); }
+    @media (prefers-reduced-motion: no-preference){
+      .phmt-js section{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.22,.61,.36,1),transform .7s cubic-bezier(.22,.61,.36,1);}
+      .phmt-js section.phmt-in{opacity:1;transform:none;}
+    }
+  </style>
+  <script>
+  (function(){
+    var d=document, el=d.documentElement;
+    el.classList.add('phmt-js');
+    function start(){
+      if(!('IntersectionObserver' in window)){ el.classList.remove('phmt-js'); return; }
+      var io=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('phmt-in'); io.unobserve(e.target); } });
+      },{threshold:0.12, rootMargin:'0px 0px -8% 0px'});
+      function scan(){ d.querySelectorAll('section:not(.phmt-watch)').forEach(function(s){ s.classList.add('phmt-watch'); io.observe(s); }); }
+      scan(); setTimeout(scan,400); window.addEventListener('load',scan);
+    }
+    if(d.readyState!=='loading') start(); else d.addEventListener('DOMContentLoaded',start);
+  })();
+
+  function phmtSendContact(e) {
+    e.preventDefault();
+    var nombre      = document.getElementById('phmt-nombre').value.trim();
+    var institucion = document.getElementById('phmt-institucion').value.trim();
+    var email       = document.getElementById('phmt-email').value.trim();
+    var asunto      = document.getElementById('phmt-asunto').value;
+    var mensaje     = document.getElementById('phmt-mensaje').value.trim();
+    var cuerpo = 'Nombre / Name / Nom: ' + nombre + '\n'
+      + (institucion ? 'Institución / Institution: ' + institucion + '\n' : '')
+      + 'Correo / Email: ' + email + '\n\n'
+      + mensaje;
+    window.location.href = 'mailto:gvapharmatracehub@fisabio.es'
+      + '?subject=' + encodeURIComponent('[GVA PharmaTrace Hub] ' + asunto)
+      + '&body=' + encodeURIComponent(cuerpo);
+    return false;
+  }
+  </script>
+</helmet>
+
+<div data-screen-label="Contacto" style="background:var(--grey-50);font-family:var(--font-body);color:var(--text-body);">
+  <dc-import name="Header" active="contacto" show-login="false" hint-size="100%,74px"></dc-import>
+
+  <!-- HERO -->
+  <section style="background:var(--indigo-700);color:#fff;position:relative;overflow:hidden;">
+    <img src="assets/logos/pharmatrace-mark-white.svg" alt="" aria-hidden="true" style="position:absolute;top:-80px;right:-80px;width:420px;opacity:0.07;">
+    <div style="position:relative;max-width:1120px;margin:0 auto;padding:72px 32px;">
+      <span style="display:inline-block;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--coral-400);margin-bottom:14px;">{{ hero_tag }}</span>
+      <h1 style="margin:0 0 16px;max-width:780px;font-family:var(--font-display);font-weight:800;font-size:46px;line-height:1.08;letter-spacing:-0.03em;color:#fff;">{{ hero_title }}</h1>
+      <p style="margin:0;max-width:640px;font-size:18px;line-height:1.6;color:var(--indigo-100);">{{ hero_sub }}</p>
+    </div>
+  </section>
+
+  <!-- CUERPO -->
+  <section style="max-width:1120px;margin:0 auto;padding:72px 32px;">
+    <div style="display:grid;grid-template-columns:1fr 1.6fr;gap:64px;align-items:start;">
+
+      <!-- INFO DE CONTACTO -->
+      <div>
+        <h2 style="margin:0 0 28px;font-family:var(--font-display);font-weight:800;font-size:22px;color:var(--indigo-700);">{{ info_title }}</h2>
+        <div style="display:flex;flex-direction:column;gap:22px;">
+
+          <div style="display:flex;gap:16px;align-items:flex-start;">
+            <div style="flex:none;width:40px;height:40px;border-radius:10px;background:var(--indigo-50);display:flex;align-items:center;justify-content:center;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--indigo-700)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <p style="margin:0 0 3px;font-size:12px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--grey-500);">{{ lbl_address }}</p>
+              <p style="margin:0;font-size:14px;color:var(--grey-700);line-height:1.55;">Fundació per al Foment de la Investigació Sanitària i Biomèdica (FISABIO)<br>Avda. de Catalunya, 21 · 46020 Valencia</p>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:16px;align-items:flex-start;">
+            <div style="flex:none;width:40px;height:40px;border-radius:10px;background:var(--indigo-50);display:flex;align-items:center;justify-content:center;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--indigo-700)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.75a16 16 0 0 0 6.29 6.29l1.63-1.83a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <p style="margin:0 0 3px;font-size:12px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--grey-500);">{{ lbl_phone }}</p>
+              <a href="tel:+34961925700" style="font-size:14.5px;color:var(--indigo-700);text-decoration:none;font-weight:600;">+34 961 925 700</a>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:16px;align-items:flex-start;">
+            <div style="flex:none;width:40px;height:40px;border-radius:10px;background:var(--indigo-50);display:flex;align-items:center;justify-content:center;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--indigo-700)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <p style="margin:0 0 3px;font-size:12px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--grey-500);">{{ lbl_email }}</p>
+              <a href="mailto:gvapharmatracehub@fisabio.es" style="font-size:13.5px;color:var(--indigo-700);text-decoration:none;font-weight:600;word-break:break-all;">gvapharmatracehub@fisabio.es</a>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:16px;align-items:flex-start;">
+            <div style="flex:none;width:40px;height:40px;border-radius:10px;background:var(--indigo-50);display:flex;align-items:center;justify-content:center;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--indigo-700)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <div>
+              <p style="margin:0 0 3px;font-size:12px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--grey-500);">{{ lbl_web }}</p>
+              <a href="https://fisabio.san.gva.es" target="_blank" rel="noopener" style="font-size:14.5px;color:var(--indigo-700);text-decoration:none;font-weight:600;">fisabio.san.gva.es ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:32px;background:var(--indigo-50);border:1px solid var(--indigo-100);border-radius:12px;padding:16px 18px;">
+          <p style="margin:0;font-size:12.5px;line-height:1.6;color:var(--indigo-700);">{{ rgpd_note }} <a href="https://fisabio.san.gva.es/es/politica-de-privacidad/" target="_blank" rel="noopener" style="color:var(--indigo-700);font-weight:700;">{{ rgpd_link }}</a>.</p>
+        </div>
+      </div>
+
+      <!-- FORMULARIO -->
+      <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:20px;box-shadow:var(--shadow-md);padding:36px 32px;">
+        <h2 style="margin:0 0 6px;font-family:var(--font-display);font-weight:800;font-size:22px;color:var(--indigo-700);">{{ form_title }}</h2>
+        <p style="margin:0 0 28px;font-size:14px;color:var(--grey-500);line-height:1.5;">{{ form_sub }}</p>
+
+        <form onsubmit="phmtSendContact(event)" style="display:flex;flex-direction:column;gap:20px;">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <label class="phmt-label">{{ f_nombre }}
+              <input id="phmt-nombre" type="text" class="phmt-input" placeholder="{{ ph_nombre }}" required>
+            </label>
+            <label class="phmt-label">{{ f_inst }}
+              <input id="phmt-institucion" type="text" class="phmt-input" placeholder="{{ ph_inst }}">
+            </label>
+          </div>
+          <label class="phmt-label">{{ f_email }}
+            <input id="phmt-email" type="email" class="phmt-input" placeholder="{{ ph_email }}" required>
+          </label>
+          <label class="phmt-label">{{ f_asunto }}
+            <select id="phmt-asunto" class="phmt-input" required style="cursor:pointer;">
+              <option value="" disabled selected>{{ ph_asunto }}</option>
+              <option>{{ opt1 }}</option>
+              <option>{{ opt2 }}</option>
+              <option>{{ opt3 }}</option>
+              <option>{{ opt4 }}</option>
+              <option>{{ opt5 }}</option>
+              <option>{{ opt6 }}</option>
+            </select>
+          </label>
+          <label class="phmt-label">{{ f_msg }}
+            <textarea id="phmt-mensaje" class="phmt-textarea" placeholder="{{ ph_msg }}" required></textarea>
+          </label>
+          <label style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--grey-600);line-height:1.5;cursor:pointer;">
+            <input type="checkbox" required style="width:16px;height:16px;margin-top:2px;flex:none;accent-color:var(--indigo-700);">
+            {{ privacy_check }} <a href="https://fisabio.san.gva.es/es/politica-de-privacidad/" target="_blank" rel="noopener" style="color:var(--indigo-700);font-weight:600;margin:0 3px;">{{ privacy_link }}</a>{{ privacy_check2 }}
+          </label>
+          <button type="submit" class="phmt-send-btn" style="align-self:flex-start;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            {{ btn_send }}
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <dc-import name="Footer" hint-size="100%,auto"></dc-import>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1320,&quot;height&quot;:900}}">
+const TRANSLATIONS = {
+  ES: {
+    hero_tag: 'Contacta con nosotros', hero_title: '¿Tienes alguna pregunta sobre el proyecto?', hero_sub: 'Escríbenos y te responderemos desde el equipo de GVA PharmaTrace Hub.',
+    info_title: 'Información de contacto', lbl_address: 'Dirección', lbl_phone: 'Teléfono', lbl_email: 'Correo electrónico', lbl_web: 'Web corporativa',
+    rgpd_note: 'Los datos se tratarán conforme al RGPD. Responsable: FISABIO. Finalidad: gestión de consultas. Más info en la', rgpd_link: 'Política de Privacidad',
+    form_title: 'Envíanos un mensaje', form_sub: 'Al pulsar «Enviar» se abrirá tu cliente de correo con el mensaje preparado para enviarlo a gvapharmatracehub@fisabio.es.',
+    f_nombre: 'Nombre *', f_inst: 'Institución', f_email: 'Correo electrónico *', f_asunto: 'Asunto *', f_msg: 'Mensaje *',
+    ph_nombre: 'Tu nombre', ph_inst: 'Hospital, universidad…', ph_email: 'tu@correo.es', ph_asunto: 'Selecciona un asunto…', ph_msg: 'Escribe aquí tu consulta…',
+    opt1: 'Información general sobre el proyecto', opt2: 'Colaboración o adhesión a la red federada', opt3: 'Uso de datos del Espacio de Datos', opt4: 'Cuestiones técnicas o de seguridad', opt5: 'Medios de comunicación', opt6: 'Otro',
+    privacy_check: 'He leído y acepto la', privacy_link: 'Política de Privacidad', privacy_check2: ' y el tratamiento de mis datos para la gestión de esta consulta.',
+    btn_send: 'Enviar mensaje',
+  },
+  EN: {
+    hero_tag: 'Contact us', hero_title: 'Do you have any questions about the project?', hero_sub: 'Write to us and the GVA PharmaTrace Hub team will get back to you.',
+    info_title: 'Contact information', lbl_address: 'Address', lbl_phone: 'Phone', lbl_email: 'Email', lbl_web: 'Corporate website',
+    rgpd_note: 'Data will be processed in accordance with the GDPR. Controller: FISABIO. Purpose: query management. More info in the', rgpd_link: 'Privacy Policy',
+    form_title: 'Send us a message', form_sub: 'Clicking «Send» will open your email client with the message ready to send to gvapharmatracehub@fisabio.es.',
+    f_nombre: 'Name *', f_inst: 'Institution', f_email: 'Email *', f_asunto: 'Subject *', f_msg: 'Message *',
+    ph_nombre: 'Your name', ph_inst: 'Hospital, university…', ph_email: 'you@email.com', ph_asunto: 'Select a subject…', ph_msg: 'Write your query here…',
+    opt1: 'General information about the project', opt2: 'Collaboration or joining the federated network', opt3: 'Use of Data Space data', opt4: 'Technical or security questions', opt5: 'Media enquiries', opt6: 'Other',
+    privacy_check: 'I have read and accept the', privacy_link: 'Privacy Policy', privacy_check2: ' and the processing of my data for the management of this query.',
+    btn_send: 'Send message',
+  },
+  VA: {
+    hero_tag: 'Contacta amb nosaltres', hero_title: 'Tens alguna pregunta sobre el projecte?', hero_sub: "Escriu-nos i et respondrem des de l'equip de GVA PharmaTrace Hub.",
+    info_title: 'Informació de contacte', lbl_address: 'Adreça', lbl_phone: 'Telèfon', lbl_email: 'Correu electrònic', lbl_web: 'Web corporativa',
+    rgpd_note: 'Les dades es tractaran conforme al RGPD. Responsable: FISABIO. Finalitat: gestió de consultes. Més info en la', rgpd_link: 'Política de Privacitat',
+    form_title: "Envia'ns un missatge", form_sub: "En prémer «Enviar» s'obrirà el teu client de correu amb el missatge preparat per enviar-lo a gvapharmatracehub@fisabio.es.",
+    f_nombre: 'Nom *', f_inst: 'Institució', f_email: 'Correu electrònic *', f_asunto: 'Assumpte *', f_msg: 'Missatge *',
+    ph_nombre: 'El teu nom', ph_inst: 'Hospital, universitat…', ph_email: 'tu@correu.es', ph_asunto: 'Selecciona un assumpte…', ph_msg: 'Escriu ací la teua consulta…',
+    opt1: 'Informació general sobre el projecte', opt2: 'Col·laboració o adhesió a la xarxa federada', opt3: "Ús de dades de l'Espai de Dades", opt4: 'Qüestions tècniques o de seguretat', opt5: 'Mitjans de comunicació', opt6: 'Altre',
+    privacy_check: "He llegit i accepte la", privacy_link: 'Política de Privacitat', privacy_check2: " i el tractament de les meues dades per a la gestió d'aquesta consulta.",
+    btn_send: 'Envia el missatge',
+  },
+};
+
+class Component extends DCLogic {
+  state = { lang: 'ES' };
+
+  renderVals() {
+    if (!this._langReg) {
+      this._langReg = true;
+      window._phmtLangListeners = window._phmtLangListeners || [];
+      window._phmtLangListeners.push((l) => this.setState({ lang: l }));
+    }
+    return { ...TRANSLATIONS[this.state.lang] };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor and local workspace metadata
+.vscode/
+.idea/
+.claude/
+.thumbnail
+
+# Local logs and temporary files
+*.log
+*.tmp
+*.bak

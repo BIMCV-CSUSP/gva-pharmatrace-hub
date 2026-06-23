@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/gva-pharmatrace-hub-design-system-019f029c-e807-4be6-8e55-44649c0bec73/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/gva-pharmatrace-hub-design-system-019f029c-e807-4be6-8e55-44649c0bec73/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/gva-pharmatrace-hub-design-system-019f029c-e807-4be6-8e55-44649c0bec73/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/gva-pharmatrace-hub-design-system-019f029c-e807-4be6-8e55-44649c0bec73/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/gva-pharmatrace-hub-design-system-019f029c-e807-4be6-8e55-44649c0bec73/tokens/base.css">
+  <link rel="stylesheet" href="_ds/gva-pharmatrace-hub-design-system-019f029c-e807-4be6-8e55-44649c0bec73/styles.css">
+  <script src="_ds/gva-pharmatrace-hub-design-system-019f029c-e807-4be6-8e55-44649c0bec73/_ds_bundle.js"></script>
+  <style>
+    html { scroll-behavior: smooth; } body { margin: 0; }
+    @media (prefers-reduced-motion: no-preference){
+      .phmt-js section{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.22,.61,.36,1),transform .7s cubic-bezier(.22,.61,.36,1);}
+      .phmt-js section.phmt-in{opacity:1;transform:none;}
+    }
+  </style>
+  <script>
+  (function(){
+    var d=document, el=d.documentElement;
+    el.classList.add('phmt-js');
+    function start(){
+      if(!('IntersectionObserver' in window)){ el.classList.remove('phmt-js'); return; }
+      var io=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('phmt-in'); io.unobserve(e.target); } });
+      },{threshold:0.12, rootMargin:'0px 0px -8% 0px'});
+      function scan(){ d.querySelectorAll('section:not(.phmt-watch)').forEach(function(s){ s.classList.add('phmt-watch'); io.observe(s); }); }
+      scan(); setTimeout(scan,400); window.addEventListener('load',scan);
+    }
+    if(d.readyState!=='loading') start(); else d.addEventListener('DOMContentLoaded',start);
+  })();
+  </script>
+</helmet>
+<div data-screen-label="Equipo" style="background:var(--grey-50);font-family:var(--font-body);color:var(--text-body);">
+  <dc-import name="Header" active="equipo" hint-size="100%,74px"></dc-import>
+
+  <!-- HERO -->
+  <section style="background:var(--indigo-700);color:#fff;position:relative;overflow:hidden;">
+    <img src="assets/logos/pharmatrace-mark-white.svg" alt="" aria-hidden="true" style="position:absolute;top:-80px;right:-80px;width:420px;opacity:0.07;">
+    <div style="position:relative;max-width:1120px;margin:0 auto;padding:72px 32px;">
+      <span style="display:inline-block;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--coral-400);margin-bottom:14px;">{{ hero_tag }}</span>
+      <h1 style="margin:0;max-width:780px;font-family:var(--font-display);font-weight:800;font-size:46px;line-height:1.08;letter-spacing:-0.03em;color:#fff;">{{ hero_title }}</h1>
+      <p style="margin:20px 0 0;max-width:700px;font-size:18px;line-height:1.6;color:var(--indigo-100);">{{ hero_sub }}</p>
+    </div>
+  </section>
+
+  <!-- ENTIDADES -->
+  <section style="max-width:1120px;margin:0 auto;padding:72px 32px;">
+    <div style="max-width:680px;margin-bottom:40px;">
+      <span style="display:block;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--red-600);margin-bottom:12px;">{{ ent_tag }}</span>
+      <h2 style="margin:0;font-family:var(--font-display);font-weight:800;font-size:34px;line-height:1.15;letter-spacing:-0.02em;color:var(--indigo-700);">{{ ent_title }}</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:18px;">
+      <div style="display:flex;gap:22px;align-items:center;background:#fff;border:1px solid var(--border-subtle);border-radius:18px;box-shadow:var(--shadow-sm);padding:28px;transition:box-shadow 200ms,transform 200ms;" style-hover="box-shadow:var(--shadow-lg);transform:translateY(-2px);">
+        <div style="flex:none;width:120px;height:72px;display:flex;align-items:center;justify-content:center;"><img src="assets\logos\FISABIO_Blue.svg" alt="FISABIO" style="max-width:120px;max-height:64px;width:auto;height:auto;object-fit:contain;"></div>
+        <div><div style="display:inline-flex;align-items:center;gap:6px;background:var(--red-50);color:var(--red-600);font-size:11px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;padding:4px 10px;border-radius:999px;margin-bottom:10px;">{{ role_coordinator }}</div><h3 style="margin:0 0 6px;font-family:var(--font-display);font-weight:800;font-size:20px;color:var(--indigo-700);">FISABIO</h3><p style="margin:0;font-size:14.5px;line-height:1.55;color:var(--grey-600);">{{ fisabio_desc }}</p></div>
+      </div>
+      <div style="display:flex;gap:22px;align-items:center;background:#fff;border:1px solid var(--border-subtle);border-radius:18px;box-shadow:var(--shadow-sm);padding:28px;transition:box-shadow 200ms,transform 200ms;" style-hover="box-shadow:var(--shadow-lg);transform:translateY(-2px);">
+        <div style="flex:none;width:120px;height:72px;display:flex;align-items:center;justify-content:center;"><img src="assets/logos/logo-iislafe-color.svg" alt="IIS La Fe" style="max-width:120px;max-height:48px;width:auto;height:auto;object-fit:contain;"></div>
+        <div><div style="display:inline-flex;align-items:center;gap:6px;background:var(--indigo-100);color:var(--indigo-700);font-size:11px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;padding:4px 10px;border-radius:999px;margin-bottom:10px;">{{ role_node }}</div><h3 style="margin:0 0 6px;font-family:var(--font-display);font-weight:800;font-size:20px;color:var(--indigo-700);">IIS La Fe</h3><p style="margin:0;font-size:14.5px;line-height:1.55;color:var(--grey-600);">{{ iislafe_desc }}</p></div>
+      </div>
+      <div style="display:flex;gap:22px;align-items:center;background:#fff;border:1px solid var(--border-subtle);border-radius:18px;box-shadow:var(--shadow-sm);padding:28px;transition:box-shadow 200ms,transform 200ms;" style-hover="box-shadow:var(--shadow-lg);transform:translateY(-2px);">
+        <div style="flex:none;width:120px;height:72px;display:flex;align-items:center;justify-content:center;"><img src="assets\logos\Isabial_color_only.svg" alt="ISABIAL" style="max-width:120px;max-height:64px;width:auto;height:auto;object-fit:contain;"></div>
+        <div><div style="display:inline-flex;align-items:center;gap:6px;background:var(--indigo-100);color:var(--indigo-700);font-size:11px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;padding:4px 10px;border-radius:999px;margin-bottom:10px;">{{ role_node }}</div><h3 style="margin:0 0 6px;font-family:var(--font-display);font-weight:800;font-size:20px;color:var(--indigo-700);">ISABIAL</h3><p style="margin:0;font-size:14.5px;line-height:1.55;color:var(--grey-600);">{{ isabial_desc }}</p></div>
+      </div>
+      <div style="display:flex;gap:22px;align-items:center;background:#fff;border:1px solid var(--border-subtle);border-radius:18px;box-shadow:var(--shadow-sm);padding:28px;transition:box-shadow 200ms,transform 200ms;" style-hover="box-shadow:var(--shadow-lg);transform:translateY(-2px);">
+        <div style="flex:none;width:120px;height:72px;display:flex;align-items:center;justify-content:center;"><img src="assets\logos\logo-fighu_black.svg" alt="Fundació Hospital General de València" style="max-width:120px;max-height:72px;width:auto;height:auto;object-fit:contain;"></div>
+        <div><div style="display:inline-flex;align-items:center;gap:6px;background:var(--indigo-100);color:var(--indigo-700);font-size:11px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;padding:4px 10px;border-radius:999px;margin-bottom:10px;">{{ role_node }}</div><h3 style="margin:0 0 6px;font-family:var(--font-display);font-weight:800;font-size:20px;color:var(--indigo-700);">FIHGUV (Hospital General)</h3><p style="margin:0;font-size:14.5px;line-height:1.55;color:var(--grey-600);">{{ fihguv_desc }}</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PERFILES CLAVE -->
+  <section style="background:#fff;border-top:1px solid var(--border-subtle);border-bottom:1px solid var(--border-subtle);">
+    <div style="max-width:1120px;margin:0 auto;padding:72px 32px;">
+      <div style="max-width:680px;margin-bottom:40px;">
+        <span style="display:block;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--red-600);margin-bottom:12px;">{{ prof_tag }}</span>
+        <h2 style="margin:0;font-family:var(--font-display);font-weight:800;font-size:34px;line-height:1.15;letter-spacing:-0.02em;color:var(--indigo-700);">{{ prof_title }}</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px;">
+        <div style="border:1px solid var(--border-subtle);border-radius:18px;padding:32px;background:var(--grey-50);">
+          <div style="width:52px;height:52px;border-radius:13px;background:var(--indigo-700);display:flex;align-items:center;justify-content:center;margin-bottom:22px;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+          <h3 style="margin:0 0 8px;font-family:var(--font-display);font-weight:700;font-size:19px;color:var(--indigo-700);">{{ prof1_title }}</h3>
+          <p style="margin:0;font-size:14.5px;line-height:1.6;color:var(--grey-600);">{{ prof1_sub }}</p>
+        </div>
+        <div style="border:1px solid var(--border-subtle);border-radius:18px;padding:32px;background:var(--grey-50);">
+          <div style="width:52px;height:52px;border-radius:13px;background:var(--indigo-700);display:flex;align-items:center;justify-content:center;margin-bottom:22px;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z" opacity="0"/><circle cx="6" cy="6" r="2"/><circle cx="18" cy="10" r="2"/><circle cx="9" cy="17" r="2"/><path d="M8 6h6M16 12l-5 4"/></svg></div>
+          <h3 style="margin:0 0 8px;font-family:var(--font-display);font-weight:700;font-size:19px;color:var(--indigo-700);">{{ prof2_title }}</h3>
+          <p style="margin:0;font-size:14.5px;line-height:1.6;color:var(--grey-600);">{{ prof2_sub }}</p>
+        </div>
+        <div style="border:1px solid var(--border-subtle);border-radius:18px;padding:32px;background:var(--grey-50);">
+          <div style="width:52px;height:52px;border-radius:13px;background:var(--indigo-700);display:flex;align-items:center;justify-content:center;margin-bottom:22px;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A3.5 3.5 0 0 0 12 6 3.5 3.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7Z"/></svg></div>
+          <h3 style="margin:0 0 8px;font-family:var(--font-display);font-weight:700;font-size:19px;color:var(--indigo-700);">{{ prof3_title }}</h3>
+          <p style="margin:0;font-size:14.5px;line-height:1.6;color:var(--grey-600);">{{ prof3_sub }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENFOQUE COLABORATIVO -->
+  <section style="max-width:1120px;margin:0 auto;padding:72px 32px;">
+    <div style="background:linear-gradient(135deg,var(--indigo-700),var(--indigo-600));border-radius:24px;padding:56px;position:relative;overflow:hidden;">
+      <img src="assets/logos/pharmatrace-mark-white.svg" alt="" aria-hidden="true" style="position:absolute;bottom:-120px;right:-60px;width:380px;opacity:0.08;">
+      <div style="position:relative;max-width:620px;">
+        <span style="display:block;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--coral-400);margin-bottom:14px;">{{ collab_tag }}</span>
+        <h2 style="margin:0 0 14px;font-family:var(--font-display);font-weight:800;font-size:30px;line-height:1.18;letter-spacing:-0.02em;color:#fff;">{{ collab_title }}</h2>
+        <p style="margin:0 0 32px;font-size:16px;line-height:1.6;color:var(--indigo-100);">{{ collab_sub }}</p>
+      </div>
+      <div style="position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:760px;">
+        <div style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.18);border-radius:14px;padding:22px;"><h3 style="margin:0;font-family:var(--font-display);font-weight:700;font-size:16px;color:#fff;">{{ collab_v1 }}</h3></div>
+        <div style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.18);border-radius:14px;padding:22px;"><h3 style="margin:0;font-family:var(--font-display);font-weight:700;font-size:16px;color:#fff;">{{ collab_v2 }}</h3></div>
+        <div style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.18);border-radius:14px;padding:22px;"><h3 style="margin:0;font-family:var(--font-display);font-weight:700;font-size:16px;color:#fff;">{{ collab_v3 }}</h3></div>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="Footer" hint-size="100%,380px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const TRANSLATIONS = {
+  ES: {
+    hero_tag: 'Equipo', hero_title: 'Un equipo multidisciplinar',
+    hero_sub: 'GVA PharmaTrace Hub está impulsado por un equipo que combina experiencia en bioinformática, inteligencia artificial, análisis de datos y ámbito clínico, garantizando una visión integral del proyecto.',
+    ent_tag: 'Entidades participantes', ent_title: 'Instituciones de la red federada',
+    role_coordinator: 'Coordinador', role_node: 'Nodo federado',
+    fisabio_desc: 'Coordinación del proyecto y gestión del Espacio de Datos.',
+    iislafe_desc: 'Nodo de computación federado que aporta datos clínicos, de imagen y genómicos de pacientes con enfermedades hereditarias de la retina.',
+    isabial_desc: 'Nodo de computación federado que aporta datos clínicos y diagnósticos de pacientes con Retinosis Pigmentaria y otras distrofias hereditarias de la retina.',
+    fihguv_desc: 'Nodo de computación federado que contribuye con datos clínicos y de seguimiento de pacientes con distrofias retinianas hereditarias.',
+    prof_tag: 'Perfiles clave', prof_title: 'El conocimiento que sostiene la plataforma',
+    prof1_title: 'Ingeniería de sistemas', prof1_sub: 'Infraestructura y nodos federados que sostienen el Espacio de Datos.',
+    prof2_title: 'Ciencia de datos y bioinformática', prof2_sub: 'Análisis, integración de datos y desarrollo de modelos.',
+    prof3_title: 'Equipo clínico e investigador', prof3_sub: 'Aplicación del conocimiento en la práctica sanitaria.',
+    collab_tag: 'Enfoque colaborativo', collab_title: 'Una colaboración entre instituciones, investigadores y expertos en datos',
+    collab_sub: 'Alineada con los principios que guían todo el proyecto.',
+    collab_v1: 'Innovación en salud', collab_v2: 'Seguridad del dato', collab_v3: 'Medicina personalizada',
+  },
+  EN: {
+    hero_tag: 'Team', hero_title: 'A multidisciplinary team',
+    hero_sub: 'GVA PharmaTrace Hub is driven by a team that combines expertise in bioinformatics, artificial intelligence, data analysis and clinical practice, ensuring a comprehensive view of the project.',
+    ent_tag: 'Participating entities', ent_title: 'Federated network institutions',
+    role_coordinator: 'Coordinator', role_node: 'Federated node',
+    fisabio_desc: 'Project coordination and Data Space management.',
+    iislafe_desc: 'Federated computing node providing clinical, imaging and genomic data from patients with hereditary retinal diseases.',
+    isabial_desc: 'Federated computing node providing clinical and diagnostic data from patients with Retinitis Pigmentosa and other hereditary retinal dystrophies.',
+    fihguv_desc: 'Federated computing node contributing clinical and follow-up data from patients with hereditary retinal dystrophies.',
+    prof_tag: 'Key profiles', prof_title: 'The knowledge underpinning the platform',
+    prof1_title: 'Systems engineering', prof1_sub: 'Infrastructure and federated nodes supporting the Data Space.',
+    prof2_title: 'Data science and bioinformatics', prof2_sub: 'Data analysis, integration and model development.',
+    prof3_title: 'Clinical and research team', prof3_sub: 'Application of knowledge in healthcare practice.',
+    collab_tag: 'Collaborative approach', collab_title: 'A collaboration between institutions, researchers and data experts',
+    collab_sub: 'Aligned with the principles guiding the entire project.',
+    collab_v1: 'Health innovation', collab_v2: 'Data security', collab_v3: 'Personalised medicine',
+  },
+  VA: {
+    hero_tag: 'Equip', hero_title: 'Un equip multidisciplinari',
+    hero_sub: "GVA PharmaTrace Hub està impulsat per un equip que combina experiència en bioinformàtica, intel·ligència artificial, anàlisi de dades i àmbit clínic, garantint una visió integral del projecte.",
+    ent_tag: 'Entitats participants', ent_title: 'Institucions de la xarxa federada',
+    role_coordinator: 'Coordinador', role_node: 'Node federat',
+    fisabio_desc: "Coordinació del projecte i gestió de l'Espai de Dades.",
+    iislafe_desc: "Node de computació federat que aporta dades clíniques, d'imatge i genòmiques de pacients amb malalties hereditàries de la retina.",
+    isabial_desc: "Node de computació federat que aporta dades clíniques i diagnòstiques de pacients amb Retinosi Pigmentària i altres distròfies hereditàries de la retina.",
+    fihguv_desc: "Node de computació federat que contribuïx amb dades clíniques i de seguiment de pacients amb distròfies retinianes hereditàries.",
+    prof_tag: 'Perfils clau', prof_title: 'El coneixement que sosté la plataforma',
+    prof1_title: 'Enginyeria de sistemes', prof1_sub: "Infraestructura i nodes federats que sostenen l'Espai de Dades.",
+    prof2_title: 'Ciència de dades i bioinformàtica', prof2_sub: "Anàlisi, integració de dades i desenvolupament de models.",
+    prof3_title: 'Equip clínic i investigador', prof3_sub: "Aplicació del coneixement en la pràctica sanitària.",
+    collab_tag: "Enfocament col·laboratiu", collab_title: "Una col·laboració entre institucions, investigadors i experts en dades",
+    collab_sub: "Alineada amb els principis que guien tot el projecte.",
+    collab_v1: 'Innovació en salut', collab_v2: 'Seguretat de la dada', collab_v3: 'Medicina personalitzada',
+  },
+};
+
+class Component extends DCLogic {
+  state = { lang: 'ES' };
+
+  renderVals() {
+    if (!this._langReg) {
+      this._langReg = true;
+      window._phmtLangListeners = window._phmtLangListeners || [];
+      window._phmtLangListeners.push((l) => this.setState({ lang: l }));
+    }
+    return { ...TRANSLATIONS[this.state.lang] };
+  }
+}
+</script>
+</body>
+</html>

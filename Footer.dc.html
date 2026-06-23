@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/gva-pharmatrace-hub-design-system-019f029c-e807-4be6-8e55-44649c0bec73/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/gva-pharmatrace-hub-design-system-019f029c-e807-4be6-8e55-44649c0bec73/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/gva-pharmatrace-hub-design-system-019f029c-e807-4be6-8e55-44649c0bec73/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/gva-pharmatrace-hub-design-system-019f029c-e807-4be6-8e55-44649c0bec73/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/gva-pharmatrace-hub-design-system-019f029c-e807-4be6-8e55-44649c0bec73/tokens/base.css">
+</helmet>
+
+<footer style="background:var(--indigo-800);color:var(--indigo-200);font-family:var(--font-body);">
+  <div style="max-width:1320px;margin:0 auto;padding:56px 32px 0;">
+
+    <!-- COLUMNAS DE NAVEGACIÓN -->
+    <div style="display:grid;grid-template-columns:1.8fr 1fr 1fr 1.3fr;gap:48px;padding-bottom:48px;">
+      <div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
+          <img src="assets/logos/pharmatrace-mark-white.svg" alt="GVA PharmaTrace Hub" style="height:36px;width:auto;object-fit:contain;">
+          <span style="font-family:var(--font-display);font-weight:800;font-size:17px;color:#fff;letter-spacing:-0.01em;">GVA PharmaTrace Hub</span>
+        </div>
+        <p style="margin:0;font-size:14px;line-height:1.65;color:var(--indigo-300);">{{ tagline }}</p>
+      </div>
+      <div>
+        <h4 style="margin:0 0 16px;font-family:var(--font-display);font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--indigo-300);">{{ nav_title }}</h4>
+        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px;">
+          <li><a href="Inicio.dc.html" style="color:var(--indigo-100);text-decoration:none;font-size:14px;">{{ nav_inicio }}</a></li>
+          <li><a href="Espacio-de-Datos.dc.html" style="color:var(--indigo-100);text-decoration:none;font-size:14px;">{{ nav_espacio }}</a></li>
+          <li><a href="Equipo.dc.html" style="color:var(--indigo-100);text-decoration:none;font-size:14px;">{{ nav_equipo }}</a></li>
+          <li><a href="Etica-y-Seguridad.dc.html" style="color:var(--indigo-100);text-decoration:none;font-size:14px;">{{ nav_etica }}</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="margin:0 0 16px;font-family:var(--font-display);font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--indigo-300);">{{ net_title }}</h4>
+        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px;">
+          <li style="font-size:14px;color:var(--indigo-100);">FISABIO</li>
+          <li style="font-size:14px;color:var(--indigo-100);">IIS La Fe</li>
+          <li style="font-size:14px;color:var(--indigo-100);">ISABIAL</li>
+          <li style="font-size:14px;color:var(--indigo-100);">FIHGUV (Hospital General)</li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="margin:0 0 16px;font-family:var(--font-display);font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--indigo-300);">{{ contact_title }}</h4>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div>
+            <p style="margin:0 0 2px;font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--indigo-400);">{{ lbl_addr }}</p>
+            <p style="margin:0;font-size:13.5px;color:var(--indigo-100);line-height:1.5;">Avda. de Catalunya, 21<br>46020 Valencia</p>
+          </div>
+          <div>
+            <p style="margin:0 0 2px;font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--indigo-400);">{{ lbl_phone }}</p>
+            <a href="tel:+34961925700" style="font-size:13.5px;color:var(--indigo-100);text-decoration:none;">+34 961 925 700</a>
+          </div>
+          <div>
+            <p style="margin:0 0 2px;font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--indigo-400);">{{ lbl_email }}</p>
+            <a href="mailto:gvapharmatracehub@fisabio.es" style="font-size:13px;color:var(--indigo-100);text-decoration:none;word-break:break-all;">gvapharmatracehub@fisabio.es</a>
+          </div>
+          <a href="Contacto.dc.html" style="display:inline-flex;align-items:center;gap:6px;margin-top:4px;font-size:13px;font-weight:600;color:var(--indigo-300);text-decoration:none;">{{ contact_form }} →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- FRANJA DE FINANCIACIÓN INSTITUCIONAL -->
+    <div style="border-top:1px solid rgba(255,255,255,0.12);padding:32px 0 28px;">
+      <p style="margin:0 0 20px;font-size:14px;line-height:1.6;color:var(--indigo-200);">{{ funding_text }}</p>
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:20px 40px;">
+        <img src="assets/logos/MTDFP.Bis.Gob.Web.png" alt="Ministerio para la Transformación Digital y de la Función Pública" style="height:62px;width:auto;object-fit:contain;">
+        <img src="assets\logos\Logo PRTR tres líneas_BLANCO.png" alt="Plan de Recuperación, Transformación y Resiliencia" style="height:100px;width:auto;object-fit:contain;">
+        <img src="assets/logos/ES_Financiado_por_la_Unión_Europea_RGB_WHITE.png" alt="Financiado por la Unión Europea – NextGenerationEU" style="height:62px;width:auto;object-fit:contain;">
+        <img src="assets/logos/convivencia-blanc.svg" alt="Generalitat Valenciana · FISABIO" style="height:52px;width:auto;object-fit:contain;">
+      </div>
+    </div>
+
+    <!-- COPYRIGHT -->
+    <div style="border-top:1px solid rgba(255,255,255,0.08);padding:20px 0 28px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;">
+      <p style="margin:0;font-size:12.5px;color:var(--indigo-300);">{{ copyright_text }}</p>
+      <div style="display:flex;gap:22px;flex-wrap:wrap;">
+        <a href="https://fisabio.san.gva.es/es/politica-de-privacidad/" target="_blank" rel="noopener" style="font-size:12.5px;color:var(--indigo-300);text-decoration:none;">{{ legal_privacy }}</a>
+        <a href="https://fisabio.san.gva.es/es/aviso-legal/" target="_blank" rel="noopener" style="font-size:12.5px;color:var(--indigo-300);text-decoration:none;">{{ legal_aviso }}</a>
+        <a href="https://fisabio.san.gva.es/es/fisabio/fisabio-abierta-portal-de-transparencia/" target="_blank" rel="noopener" style="font-size:12.5px;color:var(--indigo-300);text-decoration:none;">{{ legal_transparency }}</a>
+        <span style="font-size:12.5px;color:var(--indigo-300);">ENS</span>
+      </div>
+    </div>
+
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1320,&quot;height&quot;:380}}">
+const TRANSLATIONS = {
+  ES: {
+    tagline: 'Espacio de Datos federado, seguro e interoperable para impulsar la investigación biomédica y la medicina personalizada en la Comunitat Valenciana.',
+    nav_title: 'Navegación',
+    nav_inicio: 'Inicio', nav_espacio: 'Espacio de Datos', nav_equipo: 'Equipo', nav_etica: 'Ética y Seguridad',
+    net_title: 'Red federada',
+    contact_title: 'Contacto',
+    lbl_addr: 'Dirección', lbl_phone: 'Teléfono', lbl_email: 'Email',
+    contact_form: 'Formulario de contacto',
+    funding_text: 'Financiado por la Unión Europea – NextGenerationEU · Plan de Recuperación, Transformación y Resiliencia · Expediente: TSI-100123-2024-34',
+    copyright_text: '© 2026 FISABIO — Conselleria de Sanitat, Generalitat Valenciana. Todos los derechos reservados.',
+    legal_privacy: 'Política de privacidad', legal_aviso: 'Aviso legal', legal_transparency: 'Transparencia',
+  },
+  EN: {
+    tagline: 'Federated, secure and interoperable Data Space to drive biomedical research and personalised medicine in the Valencian Community.',
+    nav_title: 'Navigation',
+    nav_inicio: 'Home', nav_espacio: 'Data Space', nav_equipo: 'Team', nav_etica: 'Ethics & Security',
+    net_title: 'Federated network',
+    contact_title: 'Contact',
+    lbl_addr: 'Address', lbl_phone: 'Phone', lbl_email: 'Email',
+    contact_form: 'Contact form',
+    funding_text: 'Funded by the European Union – NextGenerationEU · Recovery, Transformation and Resilience Plan · Reference: TSI-100123-2024-34',
+    copyright_text: '© 2026 FISABIO — Conselleria de Sanitat, Generalitat Valenciana. All rights reserved.',
+    legal_privacy: 'Privacy policy', legal_aviso: 'Legal notice', legal_transparency: 'Transparency',
+  },
+  VA: {
+    tagline: "Espai de Dades federat, segur i interoperable per a impulsar la investigació biomèdica i la medicina personalitzada a la Comunitat Valenciana.",
+    nav_title: 'Navegació',
+    nav_inicio: 'Inici', nav_espacio: "Espai de Dades", nav_equipo: 'Equip', nav_etica: 'Ètica i Seguretat',
+    net_title: 'Xarxa federada',
+    contact_title: 'Contacte',
+    lbl_addr: 'Adreça', lbl_phone: 'Telèfon', lbl_email: 'Correu electrònic',
+    contact_form: 'Formulari de contacte',
+    funding_text: "Finançat per la Unió Europea – NextGenerationEU · Pla de Recuperació, Transformació i Resiliència · Expedient: TSI-100123-2024-34",
+    copyright_text: '© 2026 FISABIO — Conselleria de Sanitat, Generalitat Valenciana. Tots els drets reservats.',
+    legal_privacy: 'Política de privacitat', legal_aviso: 'Avís legal', legal_transparency: 'Transparència',
+  },
+};
+
+class Component extends DCLogic {
+  state = { lang: 'ES' };
+
+  renderVals() {
+    if (!this._langReg) {
+      this._langReg = true;
+      window._phmtLangListeners = window._phmtLangListeners || [];
+      window._phmtLangListeners.push((l) => this.setState({ lang: l }));
+    }
+    return { ...TRANSLATIONS[this.state.lang] };
+  }
+}
+</script>
+</body>
+</html>

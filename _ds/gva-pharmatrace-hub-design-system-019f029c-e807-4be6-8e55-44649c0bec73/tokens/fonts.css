@@ -1,0 +1,8 @@
+/* ============================================================
+   GVA PharmaTrace Hub — Webfonts
+   Per FISABIO manual: corporate display face is "Larsseit"
+   (commercial, not web-licensed). SUBSTITUTE: Hanken Grotesk
+   — the closest geometric grotesque available on Google Fonts.
+   Body face is Roboto (specified verbatim in the manual).
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=Roboto:wght@400;500;700&display=swap');

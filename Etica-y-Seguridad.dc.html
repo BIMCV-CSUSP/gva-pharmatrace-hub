@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/gva-pharmatrace-hub-design-system-019f029c-e807-4be6-8e55-44649c0bec73/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/gva-pharmatrace-hub-design-system-019f029c-e807-4be6-8e55-44649c0bec73/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/gva-pharmatrace-hub-design-system-019f029c-e807-4be6-8e55-44649c0bec73/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/gva-pharmatrace-hub-design-system-019f029c-e807-4be6-8e55-44649c0bec73/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/gva-pharmatrace-hub-design-system-019f029c-e807-4be6-8e55-44649c0bec73/tokens/base.css">
+  <link rel="stylesheet" href="_ds/gva-pharmatrace-hub-design-system-019f029c-e807-4be6-8e55-44649c0bec73/styles.css">
+  <script src="_ds/gva-pharmatrace-hub-design-system-019f029c-e807-4be6-8e55-44649c0bec73/_ds_bundle.js"></script>
+  <style>
+    html { scroll-behavior: smooth; } body { margin: 0; }
+    @media (prefers-reduced-motion: no-preference){
+      .phmt-js section{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.22,.61,.36,1),transform .7s cubic-bezier(.22,.61,.36,1);}
+      .phmt-js section.phmt-in{opacity:1;transform:none;}
+    }
+  </style>
+  <script>
+  (function(){
+    var d=document, el=d.documentElement;
+    el.classList.add('phmt-js');
+    function start(){
+      if(!('IntersectionObserver' in window)){ el.classList.remove('phmt-js'); return; }
+      var io=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('phmt-in'); io.unobserve(e.target); } });
+      },{threshold:0.12, rootMargin:'0px 0px -8% 0px'});
+      function scan(){ d.querySelectorAll('section:not(.phmt-watch)').forEach(function(s){ s.classList.add('phmt-watch'); io.observe(s); }); }
+      scan(); setTimeout(scan,400); window.addEventListener('load',scan);
+    }
+    if(d.readyState!=='loading') start(); else d.addEventListener('DOMContentLoaded',start);
+  })();
+  </script>
+</helmet>
+<div data-screen-label="Ética y Seguridad" style="background:var(--grey-50);font-family:var(--font-body);color:var(--text-body);">
+  <dc-import name="Header" active="etica" hint-size="100%,74px"></dc-import>
+
+  <!-- HERO -->
+  <section style="background:var(--indigo-700);color:#fff;position:relative;overflow:hidden;">
+    <img src="assets/logos/pharmatrace-mark-white.svg" alt="" aria-hidden="true" style="position:absolute;top:-80px;right:-80px;width:420px;opacity:0.07;">
+    <div style="position:relative;max-width:1120px;margin:0 auto;padding:72px 32px;">
+      <span style="display:inline-block;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--coral-400);margin-bottom:14px;">{{ hero_tag }}</span>
+      <h1 style="margin:0;max-width:820px;font-family:var(--font-display);font-weight:800;font-size:46px;line-height:1.08;letter-spacing:-0.03em;color:#fff;">{{ hero_title }}</h1>
+      <p style="margin:20px 0 24px;max-width:720px;font-size:18px;line-height:1.6;color:var(--indigo-100);">{{ hero_sub }}</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <span style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:999px;padding:9px 16px;font-size:14px;font-weight:600;color:#fff;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>{{ badge_rgpd }}</span>
+        <span style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:999px;padding:9px 16px;font-size:14px;font-weight:600;color:#fff;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>{{ badge_ens }}</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROTECCIÓN + PRIVACIDAD + SOBERANÍA -->
+  <section style="max-width:1120px;margin:0 auto;padding:72px 32px 32px;">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px;">
+      <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:18px;box-shadow:var(--shadow-sm);padding:32px;">
+        <div style="width:50px;height:50px;border-radius:13px;background:var(--indigo-50);display:flex;align-items:center;justify-content:center;margin-bottom:20px;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1d0f44" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
+        <h3 style="margin:0 0 14px;font-family:var(--font-display);font-weight:700;font-size:19px;color:var(--indigo-700);">{{ sec1_title }}</h3>
+        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;">
+          <li style="display:flex;gap:10px;font-size:14px;color:var(--grey-700);line-height:1.5;"><span style="color:var(--red-600);font-weight:800;">·</span>{{ sec1_li1 }}</li>
+          <li style="display:flex;gap:10px;font-size:14px;color:var(--grey-700);line-height:1.5;"><span style="color:var(--red-600);font-weight:800;">·</span>{{ sec1_li2 }}</li>
+          <li style="display:flex;gap:10px;font-size:14px;color:var(--grey-700);line-height:1.5;"><span style="color:var(--red-600);font-weight:800;">·</span>{{ sec1_li3 }}</li>
+        </ul>
+      </div>
+      <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:18px;box-shadow:var(--shadow-sm);padding:32px;">
+        <div style="width:50px;height:50px;border-radius:13px;background:var(--indigo-50);display:flex;align-items:center;justify-content:center;margin-bottom:20px;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1d0f44" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><circle cx="4" cy="6" r="1.6"/><circle cx="20" cy="6" r="1.6"/><circle cx="4" cy="18" r="1.6"/><circle cx="20" cy="18" r="1.6"/></svg></div>
+        <h3 style="margin:0 0 14px;font-family:var(--font-display);font-weight:700;font-size:19px;color:var(--indigo-700);">{{ sec2_title }}</h3>
+        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;">
+          <li style="display:flex;gap:10px;font-size:14px;color:var(--grey-700);line-height:1.5;"><span style="color:var(--red-600);font-weight:800;">·</span>{{ sec2_li1 }}</li>
+          <li style="display:flex;gap:10px;font-size:14px;color:var(--grey-700);line-height:1.5;"><span style="color:var(--red-600);font-weight:800;">·</span>{{ sec2_li2 }}</li>
+          <li style="display:flex;gap:10px;font-size:14px;color:var(--grey-700);line-height:1.5;"><span style="color:var(--red-600);font-weight:800;">·</span>{{ sec2_li3 }}</li>
+        </ul>
+      </div>
+      <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:18px;box-shadow:var(--shadow-sm);padding:32px;">
+        <div style="width:50px;height:50px;border-radius:13px;background:var(--indigo-50);display:flex;align-items:center;justify-content:center;margin-bottom:20px;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1d0f44" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 7.5 8 9 4.5-1.5 8-4 8-9V6Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <h3 style="margin:0 0 14px;font-family:var(--font-display);font-weight:700;font-size:19px;color:var(--indigo-700);">{{ sec3_title }}</h3>
+        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;">
+          <li style="display:flex;gap:10px;font-size:14px;color:var(--grey-700);line-height:1.5;"><span style="color:var(--red-600);font-weight:800;">·</span>{{ sec3_li1 }}</li>
+          <li style="display:flex;gap:10px;font-size:14px;color:var(--grey-700);line-height:1.5;"><span style="color:var(--red-600);font-weight:800;">·</span>{{ sec3_li2 }}</li>
+          <li style="display:flex;gap:10px;font-size:14px;color:var(--grey-700);line-height:1.5;"><span style="color:var(--red-600);font-weight:800;">·</span>{{ sec3_li3 }}</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- GOBERNANZA + PRINCIPIOS -->
+  <section style="max-width:1120px;margin:0 auto;padding:40px 32px 32px;">
+    <div style="display:grid;grid-template-columns:0.9fr 1.1fr;gap:48px;align-items:start;">
+      <div style="background:linear-gradient(150deg,var(--indigo-700),var(--indigo-600));border-radius:20px;padding:40px;">
+        <span style="display:block;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--coral-400);margin-bottom:14px;">{{ gov_tag }}</span>
+        <h2 style="margin:0 0 24px;font-family:var(--font-display);font-weight:800;font-size:26px;line-height:1.2;letter-spacing:-0.02em;color:#fff;">{{ gov_title }}</h2>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div style="display:flex;gap:12px;align-items:center;background:rgba(255,255,255,0.08);border-radius:12px;padding:16px 18px;"><span style="color:#fff;font-size:15px;font-weight:600;">{{ gov_li1 }}</span></div>
+          <div style="display:flex;gap:12px;align-items:center;background:rgba(255,255,255,0.08);border-radius:12px;padding:16px 18px;"><span style="color:#fff;font-size:15px;font-weight:600;">{{ gov_li2 }}</span></div>
+          <div style="display:flex;gap:12px;align-items:center;background:rgba(255,255,255,0.08);border-radius:12px;padding:16px 18px;"><span style="color:#fff;font-size:15px;font-weight:600;">{{ gov_li3 }}</span></div>
+        </div>
+      </div>
+      <div>
+        <span style="display:block;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--red-600);margin-bottom:12px;">{{ eth_tag }}</span>
+        <h2 style="margin:0 0 24px;font-family:var(--font-display);font-weight:800;font-size:28px;line-height:1.18;letter-spacing:-0.02em;color:var(--indigo-700);">{{ eth_title }}</h2>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+          <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:14px;padding:22px;"><h3 style="margin:0 0 6px;font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--indigo-700);">{{ eth1_title }}</h3><p style="margin:0;font-size:13.5px;line-height:1.5;color:var(--grey-600);">{{ eth1_sub }}</p></div>
+          <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:14px;padding:22px;"><h3 style="margin:0 0 6px;font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--indigo-700);">{{ eth2_title }}</h3><p style="margin:0;font-size:13.5px;line-height:1.5;color:var(--grey-600);">{{ eth2_sub }}</p></div>
+          <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:14px;padding:22px;"><h3 style="margin:0 0 6px;font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--indigo-700);">{{ eth3_title }}</h3><p style="margin:0;font-size:13.5px;line-height:1.5;color:var(--grey-600);">{{ eth3_sub }}</p></div>
+          <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:14px;padding:22px;"><h3 style="margin:0 0 6px;font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--indigo-700);">{{ eth4_title }}</h3><p style="margin:0;font-size:13.5px;line-height:1.5;color:var(--grey-600);">{{ eth4_sub }}</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CICLO DEL DATO -->
+  <section style="background:#fff;border-top:1px solid var(--border-subtle);">
+    <div style="max-width:1120px;margin:0 auto;padding:72px 32px;">
+      <div style="text-align:center;max-width:680px;margin:0 auto 44px;">
+        <span style="display:block;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--red-600);margin-bottom:12px;">{{ cycle_tag }}</span>
+        <h2 style="margin:0;font-family:var(--font-display);font-weight:800;font-size:34px;line-height:1.15;letter-spacing:-0.02em;color:var(--indigo-700);">{{ cycle_title }}</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 56px 1fr 56px 1fr;gap:0;align-items:center;">
+        <div style="background:var(--grey-50);border:1px solid var(--border-subtle);border-radius:16px;padding:36px 32px;text-align:center;">
+          <div style="width:56px;height:56px;border-radius:50%;background:var(--indigo-700);color:#fff;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+          <h3 style="margin:0 0 8px;font-family:var(--font-display);font-weight:700;font-size:18px;color:var(--indigo-700);">{{ cycle1_title }}</h3>
+          <p style="margin:0;font-size:14px;line-height:1.55;color:var(--grey-600);">{{ cycle1_sub }}</p>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center;"><svg width="36" height="22" viewBox="0 0 40 24" fill="none" stroke="var(--red-600)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h32"/><path d="m28 6 6 6-6 6"/></svg></div>
+        <div style="background:var(--grey-50);border:1px solid var(--border-subtle);border-radius:16px;padding:36px 32px;text-align:center;">
+          <div style="width:56px;height:56px;border-radius:50%;background:var(--indigo-700);color:#fff;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16M14 6l6 6-6 6"/></svg></div>
+          <h3 style="margin:0 0 8px;font-family:var(--font-display);font-weight:700;font-size:18px;color:var(--indigo-700);">{{ cycle2_title }}</h3>
+          <p style="margin:0;font-size:14px;line-height:1.55;color:var(--grey-600);">{{ cycle2_sub }}</p>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center;"><svg width="36" height="22" viewBox="0 0 40 24" fill="none" stroke="var(--red-600)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h32"/><path d="m28 6 6 6-6 6"/></svg></div>
+        <div style="background:var(--grey-50);border:1px solid var(--border-subtle);border-radius:16px;padding:36px 32px;text-align:center;">
+          <div style="width:56px;height:56px;border-radius:50%;background:var(--red-600);color:#fff;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 5v2M12 17v2M5 12h2M17 12h2"/></svg></div>
+          <h3 style="margin:0 0 8px;font-family:var(--font-display);font-weight:700;font-size:18px;color:var(--indigo-700);">{{ cycle3_title }}</h3>
+          <p style="margin:0;font-size:14px;line-height:1.55;color:var(--grey-600);">{{ cycle3_sub }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="Footer" hint-size="100%,380px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const TRANSLATIONS = {
+  ES: {
+    hero_tag: 'Ética y seguridad', hero_title: 'Compromiso con la privacidad y la ética',
+    hero_sub: 'GVA PharmaTrace Hub se basa en un modelo de uso responsable del dato, que garantiza la protección de la información sanitaria y el respeto a los derechos de los pacientes.',
+    badge_rgpd: 'Reglamento General de Protección de Datos (RGPD)',
+    badge_ens: 'Esquema Nacional de Seguridad (ENS)',
+    sec1_title: 'Protección de datos',
+    sec1_li1: 'Cifrado en almacenamiento y transmisión',
+    sec1_li2: 'Control de accesos basado en roles y políticas',
+    sec1_li3: 'Monitorización continua de la seguridad',
+    sec2_title: 'Tecnologías de privacidad',
+    sec2_li1: 'Aprendizaje federado: los datos no salen de cada institución',
+    sec2_li2: 'Tecnologías PET (Privacy Enhancing Technologies)',
+    sec2_li3: 'Procesamiento seguro de datos durante su uso',
+    sec3_title: 'Soberanía del dato',
+    sec3_li1: 'Define las condiciones de acceso y uso',
+    sec3_li2: 'Establece restricciones mediante políticas',
+    sec3_li3: 'Supervisa el cumplimiento de los acuerdos',
+    gov_tag: 'Gobernanza y transparencia', gov_title: 'Un modelo que garantiza confianza',
+    gov_li1: 'Uso ético y responsable de los datos',
+    gov_li2: 'Trazabilidad de las operaciones',
+    gov_li3: 'Evaluación continua de riesgos',
+    eth_tag: 'Principios éticos', eth_title: 'El desarrollo del proyecto se rige por',
+    eth1_title: 'Privacidad y dignidad', eth1_sub: 'Respeto a la privacidad y dignidad de las personas.',
+    eth2_title: 'Beneficio social', eth2_sub: 'Uso del dato orientado al beneficio social.',
+    eth3_title: 'Transparencia', eth3_sub: 'Transparencia en el tratamiento de la información.',
+    eth4_title: 'Equidad sin sesgos', eth4_sub: 'Equidad y prevención de sesgos en los modelos de IA.',
+    cycle_tag: 'Seguridad en todo el ciclo del dato', cycle_title: 'Protección garantizada en cada fase',
+    cycle1_title: 'Datos en reposo', cycle1_sub: 'Cifrado y control de acceso en el almacenamiento.',
+    cycle2_title: 'Datos en tránsito', cycle2_sub: 'Canales cifrados de extremo a extremo entre nodos.',
+    cycle3_title: 'Datos en uso', cycle3_sub: 'Procesamiento seguro mediante tecnologías PET.',
+  },
+  EN: {
+    hero_tag: 'Ethics and security', hero_title: 'Commitment to privacy and ethics',
+    hero_sub: 'GVA PharmaTrace Hub is based on a model of responsible data use, guaranteeing the protection of health information and respect for patient rights.',
+    badge_rgpd: 'General Data Protection Regulation (GDPR)',
+    badge_ens: 'National Security Framework (ENS)',
+    sec1_title: 'Data protection',
+    sec1_li1: 'Encryption in storage and transmission',
+    sec1_li2: 'Role- and policy-based access control',
+    sec1_li3: 'Continuous security monitoring',
+    sec2_title: 'Privacy technologies',
+    sec2_li1: 'Federated learning: data does not leave each institution',
+    sec2_li2: 'PET technologies (Privacy Enhancing Technologies)',
+    sec2_li3: 'Secure data processing during use',
+    sec3_title: 'Data sovereignty',
+    sec3_li1: 'Defines access and use conditions',
+    sec3_li2: 'Sets restrictions through policies',
+    sec3_li3: 'Monitors compliance with agreements',
+    gov_tag: 'Governance and transparency', gov_title: 'A model that guarantees trust',
+    gov_li1: 'Ethical and responsible use of data',
+    gov_li2: 'Traceability of operations',
+    gov_li3: 'Continuous risk assessment',
+    eth_tag: 'Ethical principles', eth_title: 'The project development is governed by',
+    eth1_title: 'Privacy and dignity', eth1_sub: 'Respect for the privacy and dignity of individuals.',
+    eth2_title: 'Social benefit', eth2_sub: 'Data use oriented towards social benefit.',
+    eth3_title: 'Transparency', eth3_sub: 'Transparency in the processing of information.',
+    eth4_title: 'Fairness and no bias', eth4_sub: 'Fairness and bias prevention in AI models.',
+    cycle_tag: 'Security throughout the data lifecycle', cycle_title: 'Protection guaranteed at every stage',
+    cycle1_title: 'Data at rest', cycle1_sub: 'Encryption and access control in storage.',
+    cycle2_title: 'Data in transit', cycle2_sub: 'End-to-end encrypted channels between nodes.',
+    cycle3_title: 'Data in use', cycle3_sub: 'Secure processing using PET technologies.',
+  },
+  VA: {
+    hero_tag: 'Ètica i seguretat', hero_title: 'Compromís amb la privacitat i l\'ètica',
+    hero_sub: 'GVA PharmaTrace Hub es basa en un model d\'ús responsable de la dada, que garantix la protecció de la informació sanitària i el respecte als drets dels pacients.',
+    badge_rgpd: 'Reglament General de Protecció de Dades (RGPD)',
+    badge_ens: 'Esquema Nacional de Seguretat (ENS)',
+    sec1_title: 'Protecció de dades',
+    sec1_li1: 'Xifratge en emmagatzematge i transmissió',
+    sec1_li2: 'Control d\'accessos basat en rols i polítiques',
+    sec1_li3: 'Monitorització contínua de la seguretat',
+    sec2_title: 'Tecnologies de privacitat',
+    sec2_li1: 'Aprenentatge federat: les dades no ixen de cada institució',
+    sec2_li2: 'Tecnologies PET (Privacy Enhancing Technologies)',
+    sec2_li3: 'Processament segur de dades durant el seu ús',
+    sec3_title: 'Sobirania de la dada',
+    sec3_li1: "Definix les condicions d'accés i ús",
+    sec3_li2: 'Establix restriccions mitjançant polítiques',
+    sec3_li3: "Supervisa el compliment dels acords",
+    gov_tag: 'Governança i transparència', gov_title: 'Un model que garantix confiança',
+    gov_li1: 'Ús ètic i responsable de les dades',
+    gov_li2: 'Traçabilitat de les operacions',
+    gov_li3: 'Avaluació contínua de riscos',
+    eth_tag: 'Principis ètics', eth_title: 'El desenvolupament del projecte es regix per',
+    eth1_title: 'Privacitat i dignitat', eth1_sub: 'Respecte a la privacitat i dignitat de les persones.',
+    eth2_title: 'Benefici social', eth2_sub: 'Ús de la dada orientat al benefici social.',
+    eth3_title: 'Transparència', eth3_sub: "Transparència en el tractament de la informació.",
+    eth4_title: 'Equitat sense biaixos', eth4_sub: "Equitat i prevenció de biaixos en els models d'IA.",
+    cycle_tag: 'Seguretat en tot el cicle de la dada', cycle_title: 'Protecció garantida en cada fase',
+    cycle1_title: 'Dades en repòs', cycle1_sub: "Xifratge i control d'accés en l'emmagatzematge.",
+    cycle2_title: 'Dades en trànsit', cycle2_sub: 'Canals xifrats d\'extrem a extrem entre nodes.',
+    cycle3_title: 'Dades en ús', cycle3_sub: 'Processament segur mitjançant tecnologies PET.',
+  },
+};
+
+class Component extends DCLogic {
+  state = { lang: 'ES' };
+
+  renderVals() {
+    if (!this._langReg) {
+      this._langReg = true;
+      window._phmtLangListeners = window._phmtLangListeners || [];
+      window._phmtLangListeners.push((l) => this.setState({ lang: l }));
+    }
+    return { ...TRANSLATIONS[this.state.lang] };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/gva-pharmatrace-hub-design-system-019f029c-e807-4be6-8e55-44649c0bec73/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/gva-pharmatrace-hub-design-system-019f029c-e807-4be6-8e55-44649c0bec73/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/gva-pharmatrace-hub-design-system-019f029c-e807-4be6-8e55-44649c0bec73/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/gva-pharmatrace-hub-design-system-019f029c-e807-4be6-8e55-44649c0bec73/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/gva-pharmatrace-hub-design-system-019f029c-e807-4be6-8e55-44649c0bec73/tokens/base.css">
+  <link rel="stylesheet" href="_ds/gva-pharmatrace-hub-design-system-019f029c-e807-4be6-8e55-44649c0bec73/styles.css">
+  <script src="_ds/gva-pharmatrace-hub-design-system-019f029c-e807-4be6-8e55-44649c0bec73/_ds_bundle.js"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { margin: 0; }
+    @keyframes phmtRing { 0%,100% { transform:scale(0.85); opacity:0.7; } 50% { transform:scale(1.05); opacity:0.25; } }
+    @keyframes phmtPulse { 0%,100% { opacity:0.55; } 50% { opacity:1; } }
+    @keyframes phmtFlowDown { to { stroke-dashoffset: -32; } }
+    @media (prefers-reduced-motion: no-preference){
+      .phmt-js section{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.22,.61,.36,1),transform .7s cubic-bezier(.22,.61,.36,1);}
+      .phmt-js section.phmt-in{opacity:1;transform:none;}
+    }
+  </style>
+  <script>
+  (function(){
+    var d=document, el=d.documentElement;
+    el.classList.add('phmt-js');
+    function start(){
+      if(!('IntersectionObserver' in window)){ el.classList.remove('phmt-js'); return; }
+      var io=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('phmt-in'); io.unobserve(e.target); } });
+      },{threshold:0.12, rootMargin:'0px 0px -8% 0px'});
+      function scan(){ d.querySelectorAll('section:not(.phmt-watch)').forEach(function(s){ s.classList.add('phmt-watch'); io.observe(s); }); }
+      scan(); setTimeout(scan,400); window.addEventListener('load',scan);
+    }
+    if(d.readyState!=='loading') start(); else d.addEventListener('DOMContentLoaded',start);
+  })();
+  </script>
+</helmet>
+<div style="background:var(--grey-50);font-family:var(--font-body);color:var(--text-body);">
+  <dc-import name="Header" active="inicio" hint-size="100%,74px"></dc-import>
+
+  <!-- HERO -->
+  <section style="position:relative;overflow:hidden;background:var(--indigo-700);color:#fff;">
+    <img src="assets/logos/pharmatrace-mark-white.svg" alt="" aria-hidden="true" style="position:absolute;top:50%;right:-120px;transform:translateY(-50%);width:680px;height:auto;opacity:0.07;pointer-events:none;">
+    <div style="position:absolute;inset:0;background:radial-gradient(900px 500px at 18% 8%, rgba(106,92,166,0.35), transparent 70%);pointer-events:none;"></div>
+    <div style="position:relative;max-width:1120px;margin:0 auto;padding:104px 32px 96px;">
+      <span style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.18);color:#fff;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:7px 14px;border-radius:999px;">{{ hero_badge }}</span>
+      <h1 style="margin:24px 0 0;max-width:880px;font-family:var(--font-display);font-weight:800;font-size:60px;line-height:1.05;letter-spacing:-0.03em;color:#fff;text-wrap:balance;">{{ hero_title }}</h1>
+      <p style="margin:26px 0 0;max-width:680px;font-size:19px;line-height:1.6;color:var(--indigo-100);">{{ hero_sub }}</p>
+      <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:38px;">
+        <a href="Espacio-de-Datos.dc.html" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;height:52px;padding:0 28px;background:var(--red-600);color:#fff;font-family:var(--font-display);font-weight:600;font-size:16px;letter-spacing:-0.01em;border-radius:10px;text-decoration:none;transition:filter 140ms,transform 140ms;" style-hover="filter:brightness(1.1);transform:translateY(-1px);">{{ hero_cta1 }}</a>
+        <a href="Equipo.dc.html" style="display:inline-flex;align-items:center;justify-content:center;height:52px;padding:0 26px;background:transparent;color:#fff;font-family:var(--font-display);font-weight:600;font-size:16px;letter-spacing:-0.01em;border:1px solid rgba(255,255,255,0.4);border-radius:10px;text-decoration:none;transition:background 140ms;" style-hover="background:rgba(255,255,255,0.1);">{{ hero_cta2 }}</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ¿QUÉ ES? -->
+  <section style="max-width:1120px;margin:0 auto;padding:48px 32px 24px;">
+    <div style="display:grid;grid-template-columns:1.15fr 0.85fr;gap:56px;align-items:center;">
+      <div>
+        <span style="display:block;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--red-600);margin-bottom:14px;">{{ what_tag }}</span>
+        <h2 style="margin:0 0 18px;font-family:var(--font-display);font-weight:800;font-size:36px;line-height:1.12;letter-spacing:-0.02em;color:var(--indigo-700);">{{ what_title }}</h2>
+        <p style="margin:0 0 16px;font-size:16.5px;line-height:1.7;color:var(--grey-700);">{{ what_p1 }}</p>
+        <p style="margin:0;font-size:16.5px;line-height:1.7;color:var(--grey-700);">{{ what_p2 }}</p>
+      </div>
+      <div style="position:relative;aspect-ratio:1/1;background:linear-gradient(160deg,var(--indigo-50),var(--sky-100));border:1px solid var(--border-subtle);border-radius:24px;display:flex;align-items:center;justify-content:center;overflow:hidden;">
+        <img src="assets\logos\pharmatrace-red.svg" alt="Red de personas conectadas — marca GVA PharmaTrace Hub" style="width:62%;height:auto;">
+      </div>
+    </div>
+  </section>
+
+  <!-- NODOS DE LA RED FEDERADA — DIAGRAMA -->
+  <section style="background:var(--indigo-50);border-top:1px solid var(--border-subtle);border-bottom:1px solid var(--border-subtle);">
+    <div style="max-width:1120px;margin:0 auto;padding:80px 32px;">
+      <div style="text-align:center;max-width:720px;margin:0 auto 16px;">
+        <span style="display:block;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--red-600);margin-bottom:12px;">{{ net_tag }}</span>
+        <h2 style="margin:0 0 14px;font-family:var(--font-display);font-weight:800;font-size:34px;line-height:1.15;letter-spacing:-0.02em;color:var(--indigo-700);">{{ net_title }}</h2>
+        <p style="margin:0;font-size:16px;line-height:1.6;color:var(--grey-600);">{{ net_sub }}</p>
+      </div>
+
+      <!-- Leyenda -->
+      <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:24px;margin:26px 0 6px;font-size:13px;color:var(--grey-600);font-weight:600;">
+        <span style="display:inline-flex;align-items:center;gap:8px;"><span style="display:inline-block;width:26px;border-top:3px solid var(--indigo-700);"></span>{{ legend_model }}</span>
+        <span style="display:inline-flex;align-items:center;gap:8px;"><span style="display:inline-block;width:26px;border-top:3px dashed var(--red-600);"></span>{{ legend_params }}</span>
+      </div>
+
+      <div style="max-width:920px;margin:0 auto;">
+        <!-- Coordinador -->
+        <div style="max-width:460px;margin:14px auto 0;background:#fff;border:1px solid var(--border-default);border-radius:18px;box-shadow:var(--shadow-md);padding:18px 24px;text-align:center;">
+          <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:12px;">
+            <span style="width:8px;height:8px;border-radius:50%;background:var(--success-600);display:inline-block;animation:phmtPulse 1.8s ease-in-out infinite;"></span>
+            <span style="font-family:var(--font-display);font-weight:800;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--indigo-700);">{{ coordinator_label }}</span>
+          </div>
+          <img src="assets\logos\convivencia-blau.svg" alt="FISABIO" style="height:46px;width:auto;max-width:100%;">
+        </div>
+
+        <!-- Conectores animados -->
+        <svg viewBox="0 0 1000 120" preserveAspectRatio="none" style="display:block;width:100%;height:104px;" aria-hidden="true">
+          <g fill="none" stroke="var(--indigo-700)" stroke-width="2.4" vector-effect="non-scaling-stroke">
+            <path d="M300 4 C 300 62, 115 56, 115 110" stroke-dasharray="2 10" style="animation:phmtFlowDown 1.2s linear infinite;"/>
+            <path d="M440 4 C 440 62, 360 56, 360 110" stroke-dasharray="2 10" style="animation:phmtFlowDown 1.2s linear infinite;"/>
+            <path d="M530 4 C 530 62, 612 56, 612 110" stroke-dasharray="2 10" style="animation:phmtFlowDown 1.2s linear infinite;"/>
+            <path d="M670 4 C 670 62, 857 56, 857 110" stroke-dasharray="2 10" style="animation:phmtFlowDown 1.2s linear infinite;"/>
+          </g>
+          <g fill="none" stroke="var(--red-600)" stroke-width="2" vector-effect="non-scaling-stroke">
+            <path d="M143 110 C 143 56, 330 62, 330 4" stroke-dasharray="2 10" style="animation:phmtFlowDown 1.4s linear infinite;"/>
+            <path d="M388 110 C 388 56, 470 62, 470 4" stroke-dasharray="2 10" style="animation:phmtFlowDown 1.4s linear infinite;"/>
+            <path d="M640 110 C 640 56, 560 62, 560 4" stroke-dasharray="2 10" style="animation:phmtFlowDown 1.4s linear infinite;"/>
+            <path d="M885 110 C 885 56, 700 62, 700 4" stroke-dasharray="2 10" style="animation:phmtFlowDown 1.4s linear infinite;"/>
+          </g>
+          <g>
+            <path d="M108 102 L122 102 L115 113 Z" fill="var(--indigo-700)"/>
+            <path d="M353 102 L367 102 L360 113 Z" fill="var(--indigo-700)"/>
+            <path d="M605 102 L619 102 L612 113 Z" fill="var(--indigo-700)"/>
+            <path d="M850 102 L864 102 L857 113 Z" fill="var(--indigo-700)"/>
+            <path d="M323 12 L337 12 L330 1 Z" fill="var(--red-600)"/>
+            <path d="M463 12 L477 12 L470 1 Z" fill="var(--red-600)"/>
+            <path d="M553 12 L567 12 L560 1 Z" fill="var(--red-600)"/>
+            <path d="M693 12 L707 12 L700 1 Z" fill="var(--red-600)"/>
+          </g>
+        </svg>
+
+        <!-- Nodos de computación -->
+        <div style="position:relative;border:2px dashed var(--indigo-300);border-radius:18px;padding:34px 22px 24px;margin-top:2px;">
+          <span style="position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--indigo-50);padding:0 14px;font-family:var(--font-display);font-weight:800;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--indigo-700);">{{ nodes_label }}</span>
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;">
+            <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:14px;box-shadow:var(--shadow-sm);padding:22px 16px;display:flex;align-items:center;justify-content:center;transition:transform 200ms,box-shadow 200ms;" style-hover="transform:translateY(-4px);box-shadow:var(--shadow-lg);">
+              <img src="assets/logos/FISABIO_Blue.svg" alt="FISABIO" style="max-height:52px;max-width:150px;width:auto;height:auto;object-fit:contain;">
+            </div>
+            <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:14px;box-shadow:var(--shadow-sm);padding:22px 16px;display:flex;align-items:center;justify-content:center;transition:transform 200ms,box-shadow 200ms;" style-hover="transform:translateY(-4px);box-shadow:var(--shadow-lg);">
+              <img src="assets/logos/Isabial_color_only.svg" alt="ISABIAL" style="max-height:54px;max-width:150px;width:auto;height:auto;object-fit:contain;">
+            </div>
+            <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:14px;box-shadow:var(--shadow-sm);padding:22px 16px;display:flex;align-items:center;justify-content:center;transition:transform 200ms,box-shadow 200ms;" style-hover="transform:translateY(-4px);box-shadow:var(--shadow-lg);">
+              <img src="assets/logos/logo-fighu_black.svg" alt="Fundació Hospital General de València" style="max-height:56px;max-width:120px;width:auto;height:auto;object-fit:contain;">
+            </div>
+            <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:14px;box-shadow:var(--shadow-sm);padding:22px 16px;display:flex;align-items:center;justify-content:center;transition:transform 200ms,box-shadow 200ms;" style-hover="transform:translateY(-4px);box-shadow:var(--shadow-lg);">
+              <img src="assets/logos/logo-iislafe-color.svg" alt="IIS La Fe" style="max-height:44px;max-width:160px;width:auto;height:auto;object-fit:contain;">
+            </div>
+          </div>
+        </div>
+      </div>
+      <p style="text-align:center;margin:30px auto 0;font-size:13px;color:var(--grey-500);max-width:680px;">{{ net_footnote }}</p>
+    </div>
+  </section>
+
+  <!-- MISIÓN -->
+  <section style="max-width:1120px;margin:0 auto;padding:56px 32px;">
+    <div style="text-align:center;max-width:700px;margin:0 auto 40px;">
+      <span style="display:block;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--red-600);margin-bottom:14px;">{{ mission_tag }}</span>
+      <h2 style="margin:0;font-family:var(--font-display);font-weight:800;font-size:34px;line-height:1.15;letter-spacing:-0.02em;color:var(--indigo-700);">{{ mission_title }}</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px;">
+      <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:16px;box-shadow:var(--shadow-sm);padding:28px;">
+        <div style="width:44px;height:44px;border-radius:11px;background:var(--indigo-50);display:flex;align-items:center;justify-content:center;margin-bottom:18px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1d0f44" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M3 12h18"/></svg></div>
+        <h3 style="margin:0 0 8px;font-family:var(--font-display);font-weight:700;font-size:17px;color:var(--indigo-700);">{{ m1_title }}</h3>
+        <p style="margin:0;font-size:14.5px;line-height:1.6;color:var(--grey-600);">{{ m1_sub }}</p>
+      </div>
+      <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:16px;box-shadow:var(--shadow-sm);padding:28px;">
+        <div style="width:44px;height:44px;border-radius:11px;background:var(--indigo-50);display:flex;align-items:center;justify-content:center;margin-bottom:18px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1d0f44" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 9 9"/><path d="M21 3l-9 9"/></svg></div>
+        <h3 style="margin:0 0 8px;font-family:var(--font-display);font-weight:700;font-size:17px;color:var(--indigo-700);">{{ m2_title }}</h3>
+        <p style="margin:0;font-size:14.5px;line-height:1.6;color:var(--grey-600);">{{ m2_sub }}</p>
+      </div>
+      <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:16px;box-shadow:var(--shadow-sm);padding:28px;">
+        <div style="width:44px;height:44px;border-radius:11px;background:var(--indigo-50);display:flex;align-items:center;justify-content:center;margin-bottom:18px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1d0f44" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <h3 style="margin:0 0 8px;font-family:var(--font-display);font-weight:700;font-size:17px;color:var(--indigo-700);">{{ m3_title }}</h3>
+        <p style="margin:0;font-size:14.5px;line-height:1.6;color:var(--grey-600);">{{ m3_sub }}</p>
+      </div>
+      <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:16px;box-shadow:var(--shadow-sm);padding:28px;">
+        <div style="width:44px;height:44px;border-radius:11px;background:var(--indigo-50);display:flex;align-items:center;justify-content:center;margin-bottom:18px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1d0f44" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17V7a2 2 0 0 1 2-2h7l3 3h2a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/></svg></div>
+        <h3 style="margin:0 0 8px;font-family:var(--font-display);font-weight:700;font-size:17px;color:var(--indigo-700);">{{ m4_title }}</h3>
+        <p style="margin:0;font-size:14.5px;line-height:1.6;color:var(--grey-600);">{{ m4_sub }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- POR QUÉ IMPORTANTE -->
+  <section style="background:var(--indigo-50);border-top:1px solid var(--border-subtle);border-bottom:1px solid var(--border-subtle);">
+    <div style="max-width:1120px;margin:0 auto;padding:72px 32px;display:grid;grid-template-columns:0.9fr 1.1fr;gap:56px;align-items:center;">
+      <div>
+        <span style="display:block;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--red-600);margin-bottom:14px;">{{ why_tag }}</span>
+        <h2 style="margin:0 0 18px;font-family:var(--font-display);font-weight:800;font-size:34px;line-height:1.15;letter-spacing:-0.02em;color:var(--indigo-700);">{{ why_title }}</h2>
+        <p style="margin:0;font-size:16.5px;line-height:1.7;color:var(--grey-700);">{{ why_sub }}</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <div style="display:flex;gap:16px;align-items:flex-start;background:#fff;border:1px solid var(--border-subtle);border-radius:14px;padding:22px 24px;box-shadow:var(--shadow-xs);">
+          <span style="flex:none;width:34px;height:34px;border-radius:9px;background:var(--red-50);color:var(--red-600);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800;">01</span>
+          <div><h3 style="margin:0 0 4px;font-family:var(--font-display);font-size:16px;font-weight:700;color:var(--indigo-700);">{{ why1_title }}</h3><p style="margin:0;font-size:14.5px;line-height:1.55;color:var(--grey-600);">{{ why1_sub }}</p></div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start;background:#fff;border:1px solid var(--border-subtle);border-radius:14px;padding:22px 24px;box-shadow:var(--shadow-xs);">
+          <span style="flex:none;width:34px;height:34px;border-radius:9px;background:var(--red-50);color:var(--red-600);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800;">02</span>
+          <div><h3 style="margin:0 0 4px;font-family:var(--font-display);font-size:16px;font-weight:700;color:var(--indigo-700);">{{ why2_title }}</h3><p style="margin:0;font-size:14.5px;line-height:1.55;color:var(--grey-600);">{{ why2_sub }}</p></div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start;background:#fff;border:1px solid var(--border-subtle);border-radius:14px;padding:22px 24px;box-shadow:var(--shadow-xs);">
+          <span style="flex:none;width:34px;height:34px;border-radius:9px;background:var(--red-50);color:var(--red-600);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800;">03</span>
+          <div><h3 style="margin:0 0 4px;font-family:var(--font-display);font-size:16px;font-weight:700;color:var(--indigo-700);">{{ why3_title }}</h3><p style="margin:0;font-size:14.5px;line-height:1.55;color:var(--grey-600);">{{ why3_sub }}</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUÉ APORTA -->
+  <section style="max-width:1120px;margin:0 auto;padding:72px 32px;">
+    <div style="max-width:720px;margin:0 auto 44px;text-align:center;">
+      <span style="display:block;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--red-600);margin-bottom:14px;">{{ value_tag }}</span>
+      <h2 style="margin:0;font-family:var(--font-display);font-weight:800;font-size:34px;line-height:1.15;letter-spacing:-0.02em;color:var(--indigo-700);">{{ value_title }}</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px;">
+      <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:18px;box-shadow:var(--shadow-sm);padding:34px 30px;">
+        <div style="width:50px;height:50px;border-radius:13px;background:var(--indigo-700);display:flex;align-items:center;justify-content:center;margin-bottom:22px;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="6" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="18" r="2"/><path d="M7 7l3 3M17 7l-3 3M7 17l3-3M17 17l-3-3"/></svg></div>
+        <h3 style="margin:0 0 10px;font-family:var(--font-display);font-weight:700;font-size:20px;color:var(--indigo-700);">{{ feat1_title }}</h3>
+        <p style="margin:0;font-size:15px;line-height:1.65;color:var(--grey-600);">{{ feat1_sub }}</p>
+      </div>
+      <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:18px;box-shadow:var(--shadow-sm);padding:34px 30px;">
+        <div style="width:50px;height:50px;border-radius:13px;background:var(--indigo-700);display:flex;align-items:center;justify-content:center;margin-bottom:22px;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 0-4 4v2a4 4 0 0 0 8 0V6a4 4 0 0 0-4-4Z"/><path d="M4 20c0-3.3 3.6-5 8-5s8 1.7 8 5"/><circle cx="12" cy="7" r="0.5"/></svg></div>
+        <h3 style="margin:0 0 10px;font-family:var(--font-display);font-weight:700;font-size:20px;color:var(--indigo-700);">{{ feat2_title }}</h3>
+        <p style="margin:0;font-size:15px;line-height:1.65;color:var(--grey-600);">{{ feat2_sub }}</p>
+      </div>
+      <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:18px;box-shadow:var(--shadow-sm);padding:34px 30px;">
+        <div style="width:50px;height:50px;border-radius:13px;background:var(--indigo-700);display:flex;align-items:center;justify-content:center;margin-bottom:22px;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2 5 4-12 2 7h6"/></svg></div>
+        <h3 style="margin:0 0 10px;font-family:var(--font-display);font-weight:700;font-size:20px;color:var(--indigo-700);">{{ feat3_title }}</h3>
+        <p style="margin:0;font-size:15px;line-height:1.65;color:var(--grey-600);">{{ feat3_sub }}</p>
+      </div>
+    </div>
+    <div style="margin-top:36px;background:linear-gradient(135deg,var(--indigo-700),var(--indigo-600));border-radius:20px;padding:40px 44px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:28px;">
+      <div style="max-width:420px;">
+        <h3 style="margin:0 0 8px;font-family:var(--font-display);font-weight:800;font-size:24px;color:#fff;letter-spacing:-0.01em;">{{ p5_title }}</h3>
+        <p style="margin:0;font-size:15px;line-height:1.6;color:var(--indigo-100);">{{ p5_sub }}</p>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;">
+        <span style="background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.22);color:#fff;font-family:var(--font-display);font-weight:600;font-size:14px;padding:9px 16px;border-radius:999px;">{{ p5_1 }}</span>
+        <span style="background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.22);color:#fff;font-family:var(--font-display);font-weight:600;font-size:14px;padding:9px 16px;border-radius:999px;">{{ p5_2 }}</span>
+        <span style="background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.22);color:#fff;font-family:var(--font-display);font-weight:600;font-size:14px;padding:9px 16px;border-radius:999px;">{{ p5_3 }}</span>
+        <span style="background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.22);color:#fff;font-family:var(--font-display);font-weight:600;font-size:14px;padding:9px 16px;border-radius:999px;">{{ p5_4 }}</span>
+        <span style="background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.22);color:#fff;font-family:var(--font-display);font-weight:600;font-size:14px;padding:9px 16px;border-radius:999px;">{{ p5_5 }}</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ÁMBITO DE APLICACIÓN -->
+  <section style="background:#fff;border-top:1px solid var(--border-subtle);">
+    <div style="max-width:1120px;margin:0 auto;padding:72px 32px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;">
+        <div>
+          <span style="display:block;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--red-600);margin-bottom:14px;">{{ scope_tag }}</span>
+          <h2 style="margin:0 0 18px;font-family:var(--font-display);font-weight:800;font-size:34px;line-height:1.15;letter-spacing:-0.02em;color:var(--indigo-700);">{{ scope_title }}</h2>
+          <p style="margin:0 0 22px;font-size:16.5px;line-height:1.7;color:var(--grey-700);">{{ scope_p1 }}</p>
+          <p style="margin:0;font-size:15px;line-height:1.6;color:var(--grey-600);">{{ scope_p2 }}</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div style="display:flex;align-items:center;gap:16px;background:var(--red-50);border:1px solid var(--red-100);border-radius:14px;padding:20px 24px;">
+            <span style="flex:none;display:inline-flex;align-items:center;gap:6px;background:var(--red-600);color:#fff;font-size:11px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;padding:5px 11px;border-radius:999px;">{{ scope_initial_badge }}</span>
+            <span style="font-family:var(--font-display);font-weight:700;font-size:17px;color:var(--indigo-700);">{{ scope_initial_title }}</span>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;">
+            <div style="background:var(--grey-50);border:1px solid var(--border-subtle);border-radius:13px;padding:18px;text-align:center;"><span style="font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--indigo-700);">{{ scope_path1 }}</span></div>
+            <div style="background:var(--grey-50);border:1px solid var(--border-subtle);border-radius:13px;padding:18px;text-align:center;"><span style="font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--indigo-700);">{{ scope_path2 }}</span></div>
+            <div style="background:var(--grey-50);border:1px solid var(--border-subtle);border-radius:13px;padding:18px;text-align:center;"><span style="font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--indigo-700);">{{ scope_path3 }}</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPACTO -->
+  <section style="max-width:1120px;margin:0 auto;padding:72px 32px;">
+    <div style="max-width:720px;margin:0 auto 44px;text-align:center;">
+      <span style="display:block;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--red-600);margin-bottom:14px;">{{ impact_tag }}</span>
+      <h2 style="margin:0;font-family:var(--font-display);font-weight:800;font-size:34px;line-height:1.15;letter-spacing:-0.02em;color:var(--indigo-700);">{{ impact_title }}</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px;">
+      <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:16px;box-shadow:var(--shadow-sm);padding:26px;"><h3 style="margin:0 0 8px;font-family:var(--font-display);font-weight:700;font-size:16px;color:var(--indigo-700);">{{ imp1_title }}</h3><p style="margin:0;font-size:14px;line-height:1.55;color:var(--grey-600);">{{ imp1_sub }}</p></div>
+      <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:16px;box-shadow:var(--shadow-sm);padding:26px;"><h3 style="margin:0 0 8px;font-family:var(--font-display);font-weight:700;font-size:16px;color:var(--indigo-700);">{{ imp2_title }}</h3><p style="margin:0;font-size:14px;line-height:1.55;color:var(--grey-600);">{{ imp2_sub }}</p></div>
+      <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:16px;box-shadow:var(--shadow-sm);padding:26px;"><h3 style="margin:0 0 8px;font-family:var(--font-display);font-weight:700;font-size:16px;color:var(--indigo-700);">{{ imp3_title }}</h3><p style="margin:0;font-size:14px;line-height:1.55;color:var(--grey-600);">{{ imp3_sub }}</p></div>
+      <div style="background:#fff;border:1px solid var(--border-subtle);border-radius:16px;box-shadow:var(--shadow-sm);padding:26px;"><h3 style="margin:0 0 8px;font-family:var(--font-display);font-weight:700;font-size:16px;color:var(--indigo-700);">{{ imp4_title }}</h3><p style="margin:0;font-size:14px;line-height:1.55;color:var(--grey-600);">{{ imp4_sub }}</p></div>
+    </div>
+    <p style="margin:28px auto 0;max-width:760px;text-align:center;font-size:15px;line-height:1.65;color:var(--grey-600);">{{ impact_footer }}</p>
+  </section>
+
+  <!-- CIERRE -->
+  <section style="background:var(--indigo-700);color:#fff;position:relative;overflow:hidden;">
+    <img src="assets/logos/pharmatrace-mark-white.svg" alt="" aria-hidden="true" style="position:absolute;bottom:-140px;left:-100px;width:520px;opacity:0.06;pointer-events:none;">
+    <div style="position:relative;max-width:1120px;margin:0 auto;padding:80px 32px;text-align:center;">
+      <h2 style="margin:0 auto 18px;max-width:760px;font-family:var(--font-display);font-weight:800;font-size:40px;line-height:1.12;letter-spacing:-0.02em;color:#fff;">{{ close_title }}</h2>
+      <p style="margin:0 auto 36px;max-width:620px;font-size:17px;line-height:1.65;color:var(--indigo-100);">{{ close_sub }}</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+        <a href="Espacio-de-Datos.dc.html" style="display:inline-flex;align-items:center;gap:8px;height:52px;padding:0 28px;background:#fff;color:var(--indigo-700);font-family:var(--font-display);font-weight:600;font-size:16px;border-radius:10px;text-decoration:none;transition:transform 140ms;" style-hover="transform:translateY(-1px);">{{ close_cta1 }}</a>
+        <a href="Etica-y-Seguridad.dc.html" style="display:inline-flex;align-items:center;height:52px;padding:0 26px;background:transparent;color:#fff;font-family:var(--font-display);font-weight:600;font-size:16px;border:1px solid rgba(255,255,255,0.4);border-radius:10px;text-decoration:none;transition:background 140ms;" style-hover="background:rgba(255,255,255,0.1);">{{ close_cta2 }}</a>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="Footer" hint-size="100%,380px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const TRANSLATIONS = {
+  ES: {
+    hero_badge: 'Plataforma pública de datos sanitarios',
+    hero_title: 'Un Espacio de Datos federado hacia una nueva medicina basada en datos',
+    hero_sub: 'GVA PharmaTrace Hub integra datos farmacológicos, genéticos, de imagen médica y registros clínicos en un entorno seguro e interoperable, para impulsar la innovación en investigación biomédica y mejorar los tratamientos farmacológicos.',
+    hero_cta1: 'Explorar el Espacio de Datos →', hero_cta2: 'Conocer la red',
+    what_tag: 'El proyecto', what_title: '¿Qué es GVA PharmaTrace Hub?',
+    what_p1: 'Es una iniciativa promovida por la Conselleria de Sanidad de la Comunitat Valenciana, a través de FISABIO, orientada a la creación de un Espacio de Datos federado, seguro e interoperable en el ámbito sanitario.',
+    what_p2: 'Su objetivo es integrar datos de distinta naturaleza —farmacológicos, genéticos, de imagen médica y registros clínicos electrónicos— para impulsar la investigación biomédica y mejorar el desarrollo y uso de tratamientos farmacológicos.',
+    net_tag: 'Red federada', net_title: 'Una red de nodos federados',
+    net_sub: 'Distintas instituciones de la Comunitat Valenciana conectadas en red. Cada entidad puede actuar como proveedor de datos, consumidor de datos o nodo de computación, conservando siempre la soberanía de su información.',
+    legend_model: 'El modelo global se envía a cada nodo', legend_params: 'Vuelven los parámetros aprendidos',
+    coordinator_label: 'Nodo Coordinador', nodes_label: 'Nodos de computación',
+    net_footnote: 'Los datos clínicos nunca salen de cada institución: viaja el modelo y regresan únicamente los parámetros aprendidos que mejoran el modelo global.',
+    mission_tag: 'Nuestra misión', mission_title: 'Un ciclo único del dato al servicio de la salud',
+    m1_title: 'Transformación digital', m1_sub: 'Impulsar la transformación digital del sistema sanitario con un ciclo único del dato en investigación e innovación en salud.',
+    m2_title: 'Acceso seguro al dato', m2_sub: 'Facilitar el acceso a datos de alto valor en un entorno seguro para investigadores, profesionales y agentes del sector.',
+    m3_title: 'Mejores tratamientos', m3_sub: 'Mejorar la efectividad de los tratamientos farmacológicos y acelerar el desarrollo de nuevos medicamentos.',
+    m4_title: 'Transferencia de conocimiento', m4_sub: 'Favorecer la transferencia de conocimiento desde la investigación hasta su aplicación clínica.',
+    why_tag: '¿Por qué es importante?', why_title: 'Aprovechar mejor los datos que ya existen',
+    why_sub: 'El desarrollo de nuevos fármacos implica altos costes —superiores a los 2.000 millones de euros— y largos periodos de 10 a 12 años. El Espacio de Datos permite extraer más valor de la información disponible.',
+    why1_title: 'Analizar efectividad y seguridad', why1_sub: 'Evaluar el comportamiento real de los medicamentos sobre poblaciones amplias.',
+    why2_title: 'Identificar interacciones farmacológicas', why2_sub: 'Detectar combinaciones de riesgo a partir de datos integrados.',
+    why3_title: 'Optimizar tratamientos por paciente', why3_sub: 'Ajustar terapias según el perfil clínico y genético de cada persona.',
+    value_tag: 'Qué aporta la plataforma', value_title: 'Datos conectados, soberanía garantizada',
+    feat1_title: 'Compartición federada', feat1_sub: 'Un entorno donde cada institución mantiene la soberanía de sus datos: la información no se mueve innecesariamente.',
+    feat2_title: 'Análisis avanzado e IA', feat2_sub: 'Capacidades de análisis e inteligencia artificial aplicadas a grandes volúmenes de información sanitaria.',
+    feat3_title: 'Visión holística del paciente', feat3_sub: 'Integración de datos clínicos, genéticos e imagen para una comprensión completa de cada caso.',
+    p5_title: 'Medicina de las 5P', p5_sub: 'El enfoque permite avanzar hacia una medicina más precisa y centrada en las personas.',
+    p5_1: 'Personalizada', p5_2: 'Predictiva', p5_3: 'Preventiva', p5_4: 'Participativa', p5_5: 'Poblacional',
+    scope_tag: 'Ámbito de aplicación', scope_title: 'Un caso de uso inicial con vocación de crecer',
+    scope_p1: 'El proyecto se inicia con las distrofias hereditarias de la retina (Retinosis Pigmentaria), una enfermedad rara de alta complejidad genética y sin tratamientos efectivos consolidados.',
+    scope_p2: 'A partir de esta base, el Espacio de Datos está diseñado para evolucionar hacia nuevas patologías:',
+    scope_initial_badge: 'Caso inicial', scope_initial_title: 'Distrofias hereditarias de la retina',
+    scope_path1: 'Cáncer', scope_path2: 'Cardiovascular', scope_path3: 'Neurodegenerativas',
+    impact_tag: 'Impacto esperado', impact_title: 'Beneficios para el sistema público de salud',
+    imp1_title: 'Calidad asistencial', imp1_sub: 'Mejorar la calidad de la atención sanitaria.',
+    imp2_title: 'Eficiencia de recursos', imp2_sub: 'Optimizar los recursos del sistema público de salud.',
+    imp3_title: 'Investigación acelerada', imp3_sub: 'Acelerar la investigación biomédica.',
+    imp4_title: 'Medicina personalizada', imp4_sub: 'Impulsar la medicina personalizada basada en datos.',
+    impact_footer: 'Además, permitirá una gestión más eficiente de la farmacovigilancia y favorecerá la sostenibilidad del sistema sanitario.',
+    close_title: 'Hacia una nueva medicina basada en datos',
+    close_sub: 'Datos masivos e inteligencia artificial para identificar patrones clínicos complejos, descubrir biomarcadores y personalizar tratamientos.',
+    close_cta1: 'Descubrir el Espacio de Datos →', close_cta2: 'Ética y seguridad',
+  },
+  EN: {
+    hero_badge: 'Public health data platform',
+    hero_title: 'A federated Data Space towards a new data-driven medicine',
+    hero_sub: 'GVA PharmaTrace Hub integrates pharmacological, genetic, medical imaging and clinical record data in a secure and interoperable environment, to drive innovation in biomedical research and improve pharmacological treatments.',
+    hero_cta1: 'Explore the Data Space →', hero_cta2: 'Meet the network',
+    what_tag: 'The project', what_title: 'What is GVA PharmaTrace Hub?',
+    what_p1: 'It is an initiative promoted by the Conselleria de Sanitat of the Valencian Community, through FISABIO, aimed at creating a federated, secure and interoperable Data Space in the healthcare field.',
+    what_p2: 'Its objective is to integrate data of different types —pharmacological, genetic, medical imaging and electronic clinical records— to boost biomedical research and improve the development and use of pharmacological treatments.',
+    net_tag: 'Federated network', net_title: 'A network of federated nodes',
+    net_sub: 'Different institutions of the Valencian Community connected in a network. Each entity can act as a data provider, data consumer or computing node, always retaining sovereignty over its information.',
+    legend_model: 'The global model is sent to each node', legend_params: 'Learned parameters are returned',
+    coordinator_label: 'Coordinating node', nodes_label: 'Computing nodes',
+    net_footnote: 'Clinical data never leaves each institution: the model travels and only the learned parameters that improve the global model are returned.',
+    mission_tag: 'Our mission', mission_title: 'A unique data cycle at the service of health',
+    m1_title: 'Digital transformation', m1_sub: 'Drive the digital transformation of the health system with a unique data cycle in health research and innovation.',
+    m2_title: 'Secure data access', m2_sub: 'Facilitate access to high-value data in a secure environment for researchers, professionals and sector agents.',
+    m3_title: 'Better treatments', m3_sub: 'Improve the effectiveness of pharmacological treatments and accelerate the development of new medicines.',
+    m4_title: 'Knowledge transfer', m4_sub: 'Promote the transfer of knowledge from research to clinical application.',
+    why_tag: 'Why does it matter?', why_title: 'Making better use of existing data',
+    why_sub: 'Developing new drugs involves high costs —exceeding 2 billion euros— and long periods of 10 to 12 years. The Data Space allows more value to be extracted from available information.',
+    why1_title: 'Analyse effectiveness and safety', why1_sub: 'Evaluate the real-world behaviour of medicines across large populations.',
+    why2_title: 'Identify pharmacological interactions', why2_sub: 'Detect risk combinations from integrated data.',
+    why3_title: 'Optimise treatments per patient', why3_sub: 'Adapt therapies according to the clinical and genetic profile of each person.',
+    value_tag: 'What the platform provides', value_title: 'Connected data, guaranteed sovereignty',
+    feat1_title: 'Federated sharing', feat1_sub: 'An environment where each institution retains sovereignty over its data: information does not move unnecessarily.',
+    feat2_title: 'Advanced analytics and AI', feat2_sub: 'Analysis and artificial intelligence capabilities applied to large volumes of health information.',
+    feat3_title: 'Holistic patient view', feat3_sub: 'Integration of clinical, genetic and imaging data for a complete understanding of each case.',
+    p5_title: '5P Medicine', p5_sub: 'The approach enables progress towards a more precise and person-centred medicine.',
+    p5_1: 'Personalised', p5_2: 'Predictive', p5_3: 'Preventive', p5_4: 'Participatory', p5_5: 'Population-based',
+    scope_tag: 'Scope', scope_title: 'An initial use case with ambitions to grow',
+    scope_p1: 'The project starts with hereditary retinal dystrophies (Retinitis Pigmentosa), a rare disease of high genetic complexity with no consolidated effective treatments.',
+    scope_p2: 'From this base, the Data Space is designed to evolve towards new pathologies:',
+    scope_initial_badge: 'Initial case', scope_initial_title: 'Hereditary retinal dystrophies',
+    scope_path1: 'Cancer', scope_path2: 'Cardiovascular', scope_path3: 'Neurodegenerative',
+    impact_tag: 'Expected impact', impact_title: 'Benefits for the public health system',
+    imp1_title: 'Care quality', imp1_sub: 'Improve the quality of healthcare.',
+    imp2_title: 'Resource efficiency', imp2_sub: 'Optimise public health system resources.',
+    imp3_title: 'Accelerated research', imp3_sub: 'Accelerate biomedical research.',
+    imp4_title: 'Personalised medicine', imp4_sub: 'Drive data-driven personalised medicine.',
+    impact_footer: 'It will also enable more efficient pharmacovigilance management and support the sustainability of the health system.',
+    close_title: 'Towards a new data-driven medicine',
+    close_sub: 'Big data and artificial intelligence to identify complex clinical patterns, discover biomarkers and personalise treatments.',
+    close_cta1: 'Discover the Data Space →', close_cta2: 'Ethics and security',
+  },
+  VA: {
+    hero_badge: 'Plataforma pública de dades sanitàries',
+    hero_title: "Un Espai de Dades federat cap a una nova medicina basada en dades",
+    hero_sub: "GVA PharmaTrace Hub integra dades farmacològiques, genètiques, d'imatge mèdica i registres clínics en un entorn segur i interoperable, per a impulsar la innovació en investigació biomèdica i millorar els tractaments farmacològics.",
+    hero_cta1: "Explorar l'Espai de Dades →", hero_cta2: 'Conéixer la xarxa',
+    what_tag: 'El projecte', what_title: 'Què és GVA PharmaTrace Hub?',
+    what_p1: "És una iniciativa promoguda per la Conselleria de Sanitat de la Comunitat Valenciana, a través de FISABIO, orientada a la creació d'un Espai de Dades federat, segur i interoperable en l'àmbit sanitari.",
+    what_p2: "El seu objectiu és integrar dades de diferent naturalesa —farmacològiques, genètiques, d'imatge mèdica i registres clínics electrònics— per a impulsar la investigació biomèdica i millorar el desenvolupament i l'ús de tractaments farmacològics.",
+    net_tag: 'Xarxa federada', net_title: 'Una xarxa de nodes federats',
+    net_sub: "Diferents institucions de la Comunitat Valenciana connectades en xarxa. Cada entitat pot actuar com a proveïdora de dades, consumidora de dades o node de computació, conservant sempre la sobirania de la seua informació.",
+    legend_model: 'El model global es envia a cada node', legend_params: 'Tornen els paràmetres apresos',
+    coordinator_label: 'Node Coordinador', nodes_label: 'Nodes de computació',
+    net_footnote: "Les dades clíniques mai no ixen de cada institució: viatja el model i tornen únicament els paràmetres apresos que milloren el model global.",
+    mission_tag: 'La nostra missió', mission_title: "Un cicle únic de la dada al servei de la salut",
+    m1_title: 'Transformació digital', m1_sub: "Impulsar la transformació digital del sistema sanitari amb un cicle únic de la dada en investigació i innovació en salut.",
+    m2_title: 'Accés segur a la dada', m2_sub: "Facilitar l'accés a dades d'alt valor en un entorn segur per a investigadors, professionals i agents del sector.",
+    m3_title: 'Millors tractaments', m3_sub: "Millorar l'efectivitat dels tractaments farmacològics i accelerar el desenvolupament de nous medicaments.",
+    m4_title: 'Transferència de coneixement', m4_sub: "Afavorir la transferència de coneixement des de la investigació fins a la seua aplicació clínica.",
+    why_tag: 'Per què és important?', why_title: 'Aprofitar millor les dades que ja existeixen',
+    why_sub: "El desenvolupament de nous fàrmacs implica alts costos —superiors als 2.000 milions d'euros— i llargs períodes de 10 a 12 anys. L'Espai de Dades permet extraure més valor de la informació disponible.",
+    why1_title: "Analitzar efectivitat i seguretat", why1_sub: "Avaluar el comportament real dels medicaments sobre poblacions àmplies.",
+    why2_title: "Identificar interaccions farmacològiques", why2_sub: "Detectar combinacions de risc a partir de dades integrades.",
+    why3_title: "Optimitzar tractaments per pacient", why3_sub: "Ajustar teràpies segons el perfil clínic i genètic de cada persona.",
+    value_tag: 'Què aporta la plataforma', value_title: 'Dades connectades, sobirania garantida',
+    feat1_title: 'Compartició federada', feat1_sub: "Un entorn on cada institució manté la sobirania de les seues dades: la informació no es mou innecessàriament.",
+    feat2_title: 'Anàlisi avançada i IA', feat2_sub: "Capacitats d'anàlisi i intel·ligència artificial aplicades a grans volums d'informació sanitària.",
+    feat3_title: 'Visió holística del pacient', feat3_sub: "Integració de dades clíniques, genètiques i d'imatge per a una comprensió completa de cada cas.",
+    p5_title: 'Medicina de les 5P', p5_sub: "L'enfocament permet avançar cap a una medicina més precisa i centrada en les persones.",
+    p5_1: 'Personalitzada', p5_2: 'Predictiva', p5_3: 'Preventiva', p5_4: 'Participativa', p5_5: 'Poblacional',
+    scope_tag: "Àmbit d'aplicació", scope_title: 'Un cas d\'ús inicial amb vocació de créixer',
+    scope_p1: "El projecte s'inicia amb les distròfies hereditàries de la retina (Retinosi Pigmentària), una malaltia rara d'alta complexitat genètica i sense tractaments efectius consolidats.",
+    scope_p2: "A partir d'açò, l'Espai de Dades està dissenyat per a evolucionar cap a noves patologies:",
+    scope_initial_badge: 'Cas inicial', scope_initial_title: 'Distròfies hereditàries de la retina',
+    scope_path1: 'Càncer', scope_path2: 'Cardiovascular', scope_path3: 'Neurodegeneratives',
+    impact_tag: 'Impacte esperat', impact_title: 'Beneficis per al sistema públic de salut',
+    imp1_title: 'Qualitat assistencial', imp1_sub: "Millorar la qualitat de l'atenció sanitària.",
+    imp2_title: 'Eficiència de recursos', imp2_sub: "Optimitzar els recursos del sistema públic de salut.",
+    imp3_title: 'Investigació accelerada', imp3_sub: "Accelerar la investigació biomèdica.",
+    imp4_title: 'Medicina personalitzada', imp4_sub: "Impulsar la medicina personalitzada basada en dades.",
+    impact_footer: "A més, permetrà una gestió més eficient de la farmacovigilància i afavorirà la sostenibilitat del sistema sanitari.",
+    close_title: "Cap a una nova medicina basada en dades",
+    close_sub: "Dades massives i intel·ligència artificial per a identificar patrons clínics complexos, descobrir biomarcadors i personalitzar tractaments.",
+    close_cta1: "Descobrir l'Espai de Dades →", close_cta2: 'Ètica i seguretat',
+  },
+};
+
+class Component extends DCLogic {
+  state = { lang: 'ES' };
+
+  renderVals() {
+    if (!this._langReg) {
+      this._langReg = true;
+      window._phmtLangListeners = window._phmtLangListeners || [];
+      window._phmtLangListeners.push((l) => this.setState({ lang: l }));
+    }
+    return { ...TRANSLATIONS[this.state.lang] };
+  }
+}
+</script>
+</body>
+</html>

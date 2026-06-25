@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="_ds/gva-pharmatrace-hub-design-system-019f029c-e807-4be6-8e55-44649c0bec73/tokens/spacing.css">
   <link rel="stylesheet" href="_ds/gva-pharmatrace-hub-design-system-019f029c-e807-4be6-8e55-44649c0bec73/tokens/base.css">
   <link rel="stylesheet" href="_ds/gva-pharmatrace-hub-design-system-019f029c-e807-4be6-8e55-44649c0bec73/styles.css">
+  <link rel="stylesheet" href="assets/responsive.css">
 </helmet>
 <header style="position:sticky;top:0;z-index:60;background:rgba(255,255,255,0.9);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--border-subtle);font-family:var(--font-body);">
   <div style="max-width:1320px;margin:0 auto;padding:0 32px;height:74px;display:flex;align-items:center;justify-content:space-between;gap:20px;">
@@ -21,12 +22,15 @@
       <img src="assets/logos/pharmatrace-mark-red.svg" alt="GVA PharmaTrace Hub" style="height:36px;width:auto;display:block;">
       <span style="font-family:var(--font-display);font-weight:800;font-size:18px;letter-spacing:-0.02em;color:var(--indigo-700);line-height:1;">GVA <span style="color:var(--red-600);">PharmaTrace</span> Hub</span>
     </a>
-    <nav style="display:flex;align-items:center;gap:2px;">
+    <nav class="{{ navClass }}" style="display:flex;align-items:center;gap:2px;">
       <sc-for list="{{ nav }}" as="item" hint-placeholder-count="4">
         <a href="{{ item.href }}" style="{{ item.style }}">{{ item.label }}</a>
       </sc-for>
     </nav>
     <div style="display:flex;align-items:center;gap:14px;flex:none;">
+      <button class="phmt-burger" onClick="{{ toggleMenu }}" aria-label="{{ menu_label }}" aria-expanded="{{ menuExpanded }}" style="align-items:center;justify-content:center;width:42px;height:42px;padding:0;background:var(--grey-100);border:1px solid var(--border-subtle);border-radius:9px;cursor:pointer;color:var(--indigo-700);">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
       <div style="display:flex;align-items:center;gap:2px;background:var(--grey-100);border:1px solid var(--border-subtle);border-radius:8px;padding:3px;">
         <button onClick="{{ setES }}" style="{{ langES }}">ES</button>
         <button onClick="{{ setVA }}" style="{{ langVA }}">VA</button>
@@ -38,7 +42,7 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1320,&quot;height&quot;:74},&quot;active&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;inicio&quot;,&quot;espacio&quot;,&quot;equipo&quot;,&quot;etica&quot;,&quot;contacto&quot;],&quot;default&quot;:&quot;inicio&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
 class Component extends DCLogic {
-  state = { lang: 'ES' };
+  state = { lang: 'ES', menuOpen: false };
 
   phmtBroadcastLang(l) {
     (window._phmtLangListeners || []).forEach(fn => fn(l));
@@ -46,6 +50,7 @@ class Component extends DCLogic {
 
   renderVals() {
     const active = this.props.active || 'inicio';
+    const menuLabels = { ES: 'Menú', VA: 'Menú', EN: 'Menu' };
     const items = [
       { key: 'inicio', label: 'Inicio', href: 'Inicio.dc.html' },
       { key: 'espacio', label: 'Espacio de Datos', href: 'Espacio-de-Datos.dc.html' },
@@ -70,6 +75,10 @@ class Component extends DCLogic {
 
     return {
       nav,
+      navClass: this.state.menuOpen ? 'phmt-nav phmt-open' : 'phmt-nav',
+      menuExpanded: this.state.menuOpen ? 'true' : 'false',
+      menu_label: menuLabels[this.state.lang] || 'Menú',
+      toggleMenu: () => this.setState({ menuOpen: !this.state.menuOpen }),
       langES: chip('ES'), langVA: chip('VA'), langEN: chip('EN'),
       setES: () => { this.setState({ lang: 'ES' }); this.phmtBroadcastLang('ES'); },
       setVA: () => { this.setState({ lang: 'VA' }); this.phmtBroadcastLang('VA'); },

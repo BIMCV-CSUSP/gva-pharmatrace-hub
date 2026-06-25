@@ -65,6 +65,14 @@
       </div>
     </div>
 
+    <!-- SELLO: ESPACIO DE DATOS DE CONFIANZA -->
+    <div style="border-top:1px solid rgba(255,255,255,0.12);padding:28px 0;display:flex;flex-wrap:wrap;align-items:center;gap:18px 28px;">
+      <a href="https://cred.digital.gob.es/espacios-de-datos/que-es-la-lista-de-confianza" target="_blank" rel="noopener" title="{{ trust_alt }}" style="display:inline-flex;align-items:center;background:#fff;border-radius:12px;padding:14px 22px;flex:none;box-shadow:0 6px 18px rgba(0,0,0,0.22);">
+        <img src="assets/logos/Datos de confianza.png" alt="{{ trust_alt }}" style="height:46px;width:auto;object-fit:contain;display:block;">
+      </a>
+      <p style="margin:0;max-width:540px;font-size:13.5px;line-height:1.65;color:var(--indigo-200);">{{ trust_text }} <a href="https://cred.digital.gob.es/espacios-de-datos/que-es-la-lista-de-confianza" target="_blank" rel="noopener" style="color:var(--indigo-100);font-weight:600;text-decoration:underline;">{{ trust_link }} →</a></p>
+    </div>
+
     <!-- FRANJA DE FINANCIACIÓN INSTITUCIONAL -->
     <div style="border-top:1px solid rgba(255,255,255,0.12);padding:32px 0 28px;">
       <p style="margin:0 0 20px;font-size:14px;line-height:1.6;color:var(--indigo-200);">{{ funding_text }}</p>
@@ -90,7 +98,7 @@
   </div>
 </footer>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1320,&quot;height&quot;:380}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1320,&quot;height&quot;:500}}">
 const TRANSLATIONS = {
   ES: {
     tagline: 'Espacio de Datos federado, seguro e interoperable para impulsar la investigación biomédica y la medicina personalizada en la Comunitat Valenciana.',
@@ -100,6 +108,9 @@ const TRANSLATIONS = {
     contact_title: 'Contacto',
     lbl_addr: 'Dirección', lbl_phone: 'Teléfono', lbl_email: 'Email',
     contact_form: 'Formulario de contacto',
+    trust_alt: 'Espacio de Datos de Confianza',
+    trust_text: 'Este proyecto forma parte de la Lista de Confianza de espacios de datos, validada por la Secretaría de Estado de Digitalización e Inteligencia Artificial, que reconoce el cumplimiento de criterios de calidad, seguridad y gobernanza alineados con los marcos europeos.',
+    trust_link: 'Conoce la Lista de Confianza',
     funding_text: 'Financiado por la Unión Europea – NextGenerationEU · Plan de Recuperación, Transformación y Resiliencia · Expediente: TSI-100123-2024-34',
     copyright_text: '© 2026 FISABIO — Conselleria de Sanitat, Generalitat Valenciana. Todos los derechos reservados.',
     legal_privacy: 'Política de privacidad', legal_aviso: 'Aviso legal', legal_transparency: 'Transparencia',
@@ -112,6 +123,9 @@ const TRANSLATIONS = {
     contact_title: 'Contact',
     lbl_addr: 'Address', lbl_phone: 'Phone', lbl_email: 'Email',
     contact_form: 'Contact form',
+    trust_alt: 'Trusted Data Space',
+    trust_text: 'This project is part of the Trust List of data spaces, validated by the Spanish Secretariat of State for Digitalisation and Artificial Intelligence, recognising compliance with quality, security and governance criteria aligned with European frameworks.',
+    trust_link: 'Learn about the Trust List',
     funding_text: 'Funded by the European Union – NextGenerationEU · Recovery, Transformation and Resilience Plan · Reference: TSI-100123-2024-34',
     copyright_text: '© 2026 FISABIO — Conselleria de Sanitat, Generalitat Valenciana. All rights reserved.',
     legal_privacy: 'Privacy policy', legal_aviso: 'Legal notice', legal_transparency: 'Transparency',
@@ -124,6 +138,9 @@ const TRANSLATIONS = {
     contact_title: 'Contacte',
     lbl_addr: 'Adreça', lbl_phone: 'Telèfon', lbl_email: 'Correu electrònic',
     contact_form: 'Formulari de contacte',
+    trust_alt: 'Espai de Dades de Confiança',
+    trust_text: "Aquest projecte forma part de la Llista de Confiança d'espais de dades, validada per la Secretaria d'Estat de Digitalització i Intel·ligència Artificial, que reconeix el compliment de criteris de qualitat, seguretat i governança alineats amb els marcs europeus.",
+    trust_link: 'Coneix la Llista de Confiança',
     funding_text: "Finançat per la Unió Europea – NextGenerationEU · Pla de Recuperació, Transformació i Resiliència · Expedient: TSI-100123-2024-34",
     copyright_text: '© 2026 FISABIO — Conselleria de Sanitat, Generalitat Valenciana. Tots els drets reservats.',
     legal_privacy: 'Política de privacitat', legal_aviso: 'Avís legal', legal_transparency: 'Transparència',
